@@ -14,6 +14,7 @@ class ErrorHandler:
         self.error_codes["ERR_INVALIDACCOUNT"] = "Error Invalid account number"
         self.error_codes["ERR_INVALIDAMOUNT"] = "Error Invalid amount entered"
         self.error_codes["ERR_INVALIDNAME"] = "Error Invalid name entered"
+        self.error_codes["ERR_UNPRIVILEGED"] = "Error Invalid Mode"
 
     def process_error(self, errorCode):
         if(self.error_codes[errorCode] != None):

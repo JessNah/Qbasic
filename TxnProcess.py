@@ -81,6 +81,9 @@ class TxnProcess:
         if(login_status == False):
             err.process_error("ERR_LOGGEDOUT")
             return False
+        if(login_user_agent == False):
+            err.process_error("ERR_UNPRIVILEGED")
+            return False
         #TODO handle non numeric entries and data types
         accNum = int(input("Please enter the new account number: ").upper())
         if(not utl.is_account_unique(accNum)):
