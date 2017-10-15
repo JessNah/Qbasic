@@ -68,13 +68,13 @@ class Utility:
             return True
 
     def is_amount_valid(self, amount):
-        #TODO handle agent mode amounts
-        if(amount < 0 or amount > 100000):
+        if((amount < 0 or amount > 100000) and not TxnProcess.login_user_agent):
+            return False
+        if((amount < 0 or amount >= 100000000) and TxnProcess.login_user_agent):
             return False
         return True
 
     def is_name_valid(self, accName):
-        #TODO handle agent mode amounts
         if(len(accName) < 3 or len(accName) > 30):
             return False
         if(accName[0] is " " or accName[len(accName)-1] is " "):

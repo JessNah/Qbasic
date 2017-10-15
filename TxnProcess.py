@@ -31,10 +31,14 @@ class TxnProcess:
 
         #prompt user for the session type
         sessType = input("Please enter the desired session type (Machine/Agent): ").upper()
-        while(sessType != "MACHINE" and sessType != "AGENT"):
+        if(sessType != "MACHINE" and sessType != "AGENT"):
             err.process_error("INVALID_SESSION")
-            sessType = input("Please enter the desired session type (Machine/Agent): ").upper()
-            #TODO set agent vari
+            return False
+        
+        if(sessType == "MACHINE"):
+            login_user_agent = False
+        else:
+            login_user_agent = True
 
         #read the valid accounts list file
         utl.process_account_file("valid_accounts_list_file.txt")
