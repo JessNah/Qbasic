@@ -1,23 +1,23 @@
-import main
-import txnProcess
-import errorHandler
+import Main
+import TxnProcess
+import ErrorHandler
 
 
-class utility:
+class Utility:
     def __init__(self):
         self.variable = 0
 
-    def processAccountFile(self, fileName): #creating valid account list array
+    def process_account_file(self, fileName): #creating valid account list array
         with open(fileName) as file:
             for line in file:
                 line = line.strip() #or some other preprocessing
                 #TODO remove all trailing spaces and leading spaces from each line before converting to int
                 line = int(line)
-                txnProcess.valid_acc_list.append(line) #storing everything in memory!
-        print(txnProcess.valid_acc_list[0])
+                TxnProcess.valid_acc_list.append(line) #storing everything in memory!
+        print(TxnProcess.valid_acc_list[0])
 
     #forms the transaction msg to be added into the transaction summary file
-    def createTxnMsg(self, txnCode, toAcc, amount, fromAcc, accName):
+    def create_txn_msg(self, txnCode, toAcc, amount, fromAcc, accName):
         msg = ""
 
         if(txnCode == None):
@@ -48,21 +48,37 @@ class utility:
         return msg
 
     #create the transaction summary file
-    def createTxnSummaryFile(self, listTxnMsgs):
+    def create_txn_summary_file(self, listTxnMsgs):
         myfile = open('txn_summary_file.txt', 'w')
         for line in listTxnMsgs:
                 #var1, var2 = line.split(",");
                 myfile.writelines(line + "\n")
         myfile.close()
 
-    def isAccountValid(self, accNum):
-        if(accNum in txnProcess.valid_acc_list):
+    def is_account_valid(self, accNum):
+        if(accNum in TxnProcess.valid_acc_list):
             return True
         else:
             return False
+    
+    def is_account_unique(self, accNum):
+        if(accNum in TxnProcess.valid_acc_list or accNum in TxnProcess.new_acc_list):
+            return False
+        else:
+            return True
 
-    def isAmountValid(self, amount):
+    def is_amount_valid(self, amount):
         #TODO handle agent mode amounts
-        if(amount < 0 or amount > 1000):
+        if(amount < 0 or amount > 100000):
+            return False
+        return True
+
+    def is_name_valid(self, accName):
+        #TODO handle agent mode amounts
+        if(len(accName) < 3 or len(accName) > 30):
+            return False
+        if(accName[0] is " " or accName[len(accName)-1] is " "):
+            return False
+        if(not accName.replace(" ", "").isalnum()):
             return False
         return True
