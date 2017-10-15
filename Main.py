@@ -15,19 +15,21 @@ if __name__ == '__main__':
                 status = False
 
         elif(user_input == "LOGOUT"):
-            #user_input = None
             if(txn.txn_logout() == False):
                 status = False
 
         elif(user_input == "DEPOSIT"):
-            #user_input = None
             if(txn.txn_deposit() == False):
                 status = False
 
         elif(user_input == "CREATEACCT"):
-            #user_input = None
             if(txn.txn_createacct() == False):
                 status = False
+
+        elif(user_input == "DELETEACCT"):
+            if(txn.txn_deleteacct() == False):
+                status = False
+
 
         else:
             status = False

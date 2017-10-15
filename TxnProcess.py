@@ -35,7 +35,7 @@ class TxnProcess:
         if(sessType != "MACHINE" and sessType != "AGENT"):
             err.process_error("INVALID_SESSION")
             return False
-        
+
         if(sessType == "MACHINE"):
             login_user_agent = False
         else:
@@ -100,5 +100,29 @@ class TxnProcess:
             return False
         new_acc_list.append(accNum)
         txn_message_list.append(utl.create_txn_msg("NEW", accNum, None, None, accName))
+
+        return True
+
+    def txn_deleteacct(self):
+        if(login_status == False):
+            err.process_error("ERR_LOGGEDOUT")
+            return False
+        if(login_user_agent == False):
+            err.process_error("ERR_UNPRIVILEGED")
+            return False
+        #TODO handle non numeric entries and data types
+        accNum = int(input("Please enter the account number you wish to delete: ").upper())
+        if(not utl.is_account_valid(accNum)):
+            err.process_error("ERR_INVALIDACCOUNT")
+            return False
+        accName = input("Please enter the name of account owner: ").upper()
+        if(not utl.is_name_valid(accName)):
+            err.process_error("ERR_INVALIDNAME")
+            return False
+
+        #remove account from the list so that it will not be used in further transactions
+        valid_acc_list.remove(accNum)
+
+        txn_message_list.append(utl.create_txn_msg("DEL", accNum, None, None, accName))
 
         return True
