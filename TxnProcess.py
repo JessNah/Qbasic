@@ -37,7 +37,7 @@ class TxnProcess:
             #TODO set agent vari
 
         #read the valid accounts list file
-        utl.process_account_file("test.txt")
+        utl.process_account_file("valid_accounts_list_file.txt")
 
         #login successfully completed, return true
         return True
