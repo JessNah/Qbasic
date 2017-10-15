@@ -14,7 +14,6 @@ class Utility:
                 #TODO remove all trailing spaces and leading spaces from each line before converting to int
                 line = int(line)
                 TxnProcess.valid_acc_list.append(line) #storing everything in memory!
-        print(TxnProcess.valid_acc_list[0])
 
     #forms the transaction msg to be added into the transaction summary file
     def create_txn_msg(self, txnCode, toAcc, amount, fromAcc, accName):

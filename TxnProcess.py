@@ -22,6 +22,7 @@ class TxnProcess:
     #login transaction
     def txn_login(self):
         global login_status
+        global login_user_agent
         if(login_status == False):
             login_status = True
         else:

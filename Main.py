@@ -9,7 +9,6 @@ if __name__ == '__main__':
     user_input = input("Please begin by logging in: ").upper()
 
     while(user_input != None):
-        print(user_input)
         status = True
         if(user_input == "LOGIN"):
             if(txn.txn_login() == False):
