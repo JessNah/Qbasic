@@ -2,7 +2,9 @@ import TxnProcess
 import Utility
 import ErrorHandler
 import sys
-
+"""This is the main function
+This is used to call out for user input transaction codes
+"""
 if __name__ == '__main__':
 
     txn = TxnProcess.TxnProcess()
