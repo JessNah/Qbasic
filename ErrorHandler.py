@@ -15,6 +15,8 @@ class ErrorHandler:
         self.error_codes["ERR_INVALIDAMOUNT"] = "Error Invalid amount entered"
         self.error_codes["ERR_INVALIDNAME"] = "Error Invalid name entered"
         self.error_codes["ERR_UNPRIVILEGED"] = "Error Invalid Mode"
+        self.error_codes["ERR_WITHDRAWLIMIT"] = "Error Withdraw Limit reached for \"From\" account."
+        self.error_codes["ERR_SAMEACCOUNT"] = "Error \"From\" and \"To\" account are the same."
 
     def process_error(self, errorCode):
         if(self.error_codes[errorCode] != None):

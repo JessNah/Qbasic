@@ -4,16 +4,21 @@ import ErrorHandler
 
 
 class Utility:
-    def __init__(self):
-        self.variable = 0
 
-    def process_account_file(self, fileName): #creating valid account list array
+    #creating valid account list array
+    def process_account_file(self, fileName): 
         with open(fileName) as file:
             for line in file:
                 line = line.strip() #or some other preprocessing
                 #TODO remove all trailing spaces and leading spaces from each line before converting to int
                 line = int(line)
                 TxnProcess.valid_acc_list.append(line) #storing everything in memory!
+    
+    #Initialize Withdraw totals for valid accounts.
+    def intiliazeWithdrawTotals(self): 
+        TxnProcess.withdrawLimits.clear()
+        for accNum in TxnProcess.valid_acc_list:
+            TxnProcess.withdrawLimits[accNum] = 0
 
     #forms the transaction msg to be added into the transaction summary file
     def create_txn_msg(self, txnCode, toAcc, amount, fromAcc, accName):
@@ -67,8 +72,10 @@ class Utility:
             return True
 
     def is_amount_valid(self, amount):
+        # Machine amount limit
         if((amount < 0 or amount > 100000) and not TxnProcess.login_user_agent):
             return False
+        # Agent amount limit    
         if((amount < 0 or amount >= 100000000) and TxnProcess.login_user_agent):
             return False
         return True
@@ -79,5 +86,12 @@ class Utility:
         if(accName[0] is " " or accName[len(accName)-1] is " "):
             return False
         if(not accName.replace(" ", "").isalnum()):
+            return False
+        return True
+
+    def is_within_withdraw_limit(self,accNum, amount):
+        newAmount = TxnProcess.withdrawLimits[accNum] + amount
+        # Machine user can only withdraw max $1000 from a single acount in a single session
+        if(newAmount > 100000 and not TxnProcess.login_user_agent):
             return False
         return True
