@@ -4,24 +4,30 @@ import ErrorHandler
 
 
 class Utility:
+    """Class used for utility functions for QBasic application.
+    Utility functions are by TxnProcess for routine operations.
+    """
 
-    #creating valid account list array
-    def process_account_file(self, fileName): 
+    def process_account_file(self, fileName):
+        """Function to process valid accounts file.
+        Valid account numbers are stored in TxnProcess.valid_acc_list.
+        """ 
         with open(fileName) as file:
             for line in file:
                 line = line.strip() #or some other preprocessing
                 #TODO remove all trailing spaces and leading spaces from each line before converting to int
                 line = int(line)
                 TxnProcess.valid_acc_list.append(line) #storing everything in memory!
+        #TODO ensure file ends in 0000000
     
-    #Initialize Withdraw totals for valid accounts.
-    def intiliazeWithdrawTotals(self): 
+    def intiliazeWithdrawTotals(self):
+        """Function to initiliaze withdrawal amounts for each valid account.""" 
         TxnProcess.withdrawLimits.clear()
         for accNum in TxnProcess.valid_acc_list:
             TxnProcess.withdrawLimits[accNum] = 0
 
-    #forms the transaction msg to be added into the transaction summary file
     def create_txn_msg(self, txnCode, toAcc, amount, fromAcc, accName):
+        """Function to form the transaction msg to be added into the transaction summary file.""" 
         msg = ""
 
         if(txnCode == None):
@@ -51,8 +57,8 @@ class Utility:
 
         return msg
 
-    #create the transaction summary file
     def create_txn_summary_file(self, listTxnMsgs):
+        """Function to write all cached transaction messages to transaction summary file."""
         myfile = open('txn_summary_file.txt', 'w')
         for line in listTxnMsgs:
                 #var1, var2 = line.split(",");
@@ -60,18 +66,23 @@ class Utility:
         myfile.close()
 
     def is_account_valid(self, accNum):
+        """Function to check if passed in account number is valid."""
         if(accNum in TxnProcess.valid_acc_list):
             return True
         else:
             return False
     
     def is_account_unique(self, accNum):
+        """Function to check if passed in account number is unique(or new)."""
         if(accNum in TxnProcess.valid_acc_list or accNum in TxnProcess.new_acc_list):
             return False
         else:
             return True
 
     def is_amount_valid(self, amount):
+        """Function to check if passed in amount is within limits for machine and agent users.
+        Used by deposit, withdraw, and transfer transaction commands.
+        """
         # Machine amount limit
         if((amount < 0 or amount > 100000) and not TxnProcess.login_user_agent):
             return False
@@ -81,6 +92,7 @@ class Utility:
         return True
 
     def is_name_valid(self, accName):
+        """Function to check if passed in account name is valid."""
         if(len(accName) < 3 or len(accName) > 30):
             return False
         if(accName[0] is " " or accName[len(accName)-1] is " "):
@@ -89,7 +101,10 @@ class Utility:
             return False
         return True
 
-    def is_within_withdraw_limit(self,accNum, amount):
+    def is_within_withdraw_limit(self, accNum, amount):
+        """Function to check if passed in account will surpass daily withdraw limit by completing pending withdrawal.
+        Returns False if limit will be reached with pending withdrawal, true if withdrawal is valid.
+        """
         newAmount = TxnProcess.withdrawLimits[accNum] + amount
         # Machine user can only withdraw max $1000 from a single acount in a single session
         if(newAmount > 100000 and not TxnProcess.login_user_agent):
