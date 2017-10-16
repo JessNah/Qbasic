@@ -12,14 +12,18 @@ withdrawLimits = {}    #Dictionary of how much has been withdrawn from each acco
 utl = Utility.Utility()
 err = ErrorHandler.ErrorHandler()
 
-#all functions in txProcess are to return booleans indiating transaction success
-#any errors encountered should be handled by calling the processError() from the errorHandler
-#at the end of each transaction, call createTxnMsg() to form the appropriate string for the summary file
-
 class TxnProcess:
+    """Class used for handling all transaction codes.
+    
+    All TxnProcess functions return booleans indiating transaction success or failure.
+    Any errors encountered should be handled using processError() from the errorHandler class.
+    Each transaction uses createTxnMsg() to cache messages to be written to transaction file.
+    """
 
-    #login transaction
     def txn_login(self):
+        """Function to process a user login transaction code.
+        Sets user type (machine,agent) and reads the valid accounts file.
+        """
         global login_status
         global login_user_agent
         if(login_status == False):
@@ -52,6 +56,9 @@ class TxnProcess:
 
     #logout transaction
     def txn_logout(self):
+        """Function to process a user logout transaction code.
+        Logs out the current user and creates transaction summary file.
+        """
         global login_status
         if(login_status == True):
             print("Successfully Logged out of the system.")
@@ -67,6 +74,9 @@ class TxnProcess:
         return True
 
     def txn_deposit(self):
+        """Function to process a user deposit transaction code.
+        Checks if account number and deposit amount are valid.
+        """
         if(login_status == False):
             err.process_error("ERR_LOGGEDOUT")
             return False
@@ -98,6 +108,9 @@ class TxnProcess:
         return True
 
     def txn_createacct(self):
+        """Function to process a user createacct transaction code.
+        Checks if account number and account name are valid before creating account.
+        """
         if(login_status == False):
             err.process_error("ERR_LOGGEDOUT")
             return False
@@ -126,6 +139,9 @@ class TxnProcess:
         return True
 
     def txn_deleteacct(self):
+        """Function to process a user deleteacct transaction code.
+        Checks if account number and account name are valid before deleting account.
+        """
         if(login_status == False):
             err.process_error("ERR_LOGGEDOUT")
             return False
@@ -157,6 +173,9 @@ class TxnProcess:
         return True
         
     def txn_withdraw(self):
+        """Function to process a user withdraw transaction code.
+        Checks if account number and withdraw amount are valid before processing withdrawal.
+        """
         if(login_status == False):
             err.process_error("ERR_LOGGEDOUT")
             return False
@@ -194,6 +213,9 @@ class TxnProcess:
         return True
     
     def txn_transfer(self):
+        """Function to process a user transfer transaction code.
+        Checks if \"From\" and \"To\" account number and transfer amount are valid before processing transfer.
+        """
         if(login_status == False):
             err.process_error("ERR_LOGGEDOUT")
             return False

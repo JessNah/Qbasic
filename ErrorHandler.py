@@ -1,12 +1,15 @@
 import Main
 import TxnProcess
 
-#any special error handling necessary can be done within this class
 class ErrorHandler:
+    """Class used for error handling by QBasic program.
+    Uses dictionary to map error codes to error strings.
+    """
 
     error_codes = {}               #dictionary of error codes
 
     def __init__(self):
+        """Initialize error code to error string mapping."""
         self.error_codes["ERR_GENERIC"] = "Generic Error encountered. Please try later."
         self.error_codes["ERR_LOGGEDIN"] = "Error logging in. User already logged into the system."
         self.error_codes["INVALID_SESSION"] = "Error invalid session type."
@@ -19,5 +22,6 @@ class ErrorHandler:
         self.error_codes["ERR_SAMEACCOUNT"] = "Error \"From\" and \"To\" account are the same."
 
     def process_error(self, errorCode):
+        """Function to send error string to stdout."""
         if(self.error_codes[errorCode] != None):
             print(self.error_codes[errorCode])
