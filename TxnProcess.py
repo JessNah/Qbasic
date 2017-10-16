@@ -2,6 +2,8 @@ import Main
 import Utility
 import ErrorHandler
 
+"""All the global variables for the Qbasic Front end
+"""
 login_status = False        #False == Not logged
 login_user_agent = False    #False == Machine
 valid_acc_list = []         #valid account list
