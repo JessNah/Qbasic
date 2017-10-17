@@ -50,7 +50,7 @@ class TxnProcess:
         utl.process_account_file("valid_accounts_list_file.txt")
         
         #Intiliaze withdraw totals
-        utl.intiliazeWithdrawTotals()
+        utl.intiliaze_withdraw_totals()
 
         #login successfully completed, return true
         return True

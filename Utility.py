@@ -20,7 +20,7 @@ class Utility:
                 TxnProcess.valid_acc_list.append(line) #storing everything in memory!
         #TODO ensure file ends in 0000000
     
-    def intiliazeWithdrawTotals(self):
+    def intiliaze_withdraw_totals(self):
         """Function to initiliaze withdrawal amounts for each valid account.""" 
         TxnProcess.withdrawLimits.clear()
         for accNum in TxnProcess.valid_acc_list:
