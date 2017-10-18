@@ -9,7 +9,9 @@ login_user_agent = False    #False == Machine
 valid_acc_list = []         #valid account list
 new_acc_list = []           #Accounts created within the processing day
 txn_message_list = []       #List of messages to be written in transaction summary file
-withdrawLimits = {}    #Dictionary of how much has been withdrawn from each account in the current processing day.
+withdraw_limits = {}    #Dictionary of how much has been withdrawn from each account in the current processing day.
+valid_accounts_file = ""
+transaction_summary_file = ""
 
 utl = Utility.Utility()
 err = ErrorHandler.ErrorHandler()
@@ -47,7 +49,7 @@ class TxnProcess:
             login_user_agent = True
 
         #read the valid accounts list file
-        utl.process_account_file("valid_accounts_list_file.txt")
+        utl.process_account_file(self.valid_accounts_file)
         
         #Intiliaze withdraw totals
         utl.intiliaze_withdraw_totals()
@@ -70,8 +72,11 @@ class TxnProcess:
             err.process_error("ERR_LOGGEDOUT")
             return False
 
+        #Add EOS tag to transaction summary buffer
+        txn_message_list.append(utl.create_txn_msg("EOS", None, None, None, None))
+
         #create the transaction summary file
-        utl.create_txn_summary_file(txn_message_list)
+        utl.create_txn_summary_file(self.transaction_summary_file, txn_message_list)
 
         return True
 
@@ -208,7 +213,7 @@ class TxnProcess:
             return False    
 
         #Update withdraw total for account
-        withdrawLimits[accNum]+=amount
+        withdraw_limits[accNum]+=amount
 
         txn_message_list.append(utl.create_txn_msg("WDR", None, amount, accNum, None))
 
