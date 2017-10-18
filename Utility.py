@@ -1,7 +1,8 @@
-import Main
 import TxnProcess
 import ErrorHandler
+import sys
 
+err = ErrorHandler.ErrorHandler()
 
 class Utility:
     """Class used for utility functions for QBasic application.
@@ -10,16 +11,18 @@ class Utility:
 
     def process_account_file(self, fileName):
         """Function to process valid accounts file.
-        Valid account numbers are stored in TxnProcess.valid_acc_list.
+        Valid account numbers are stored in TxnProcess.valid_acc_list
         """ 
         with open(fileName) as file:
             for line in file:
-                line = line.strip() #or some other preprocessing
-                #TODO remove all trailing spaces and leading spaces from each line before converting to int
-                line = int(line)
+                line = line.strip() #remove leading and trailing spaces.
+                try:
+                    line = int(line)
+                except ValueError:
+                    err.process_error("ERR_INVALIDACCFILE")
+                    sys.exit()
                 TxnProcess.valid_acc_list.append(line) #storing everything in memory!
-        #TODO ensure file ends in 0000000
-    
+
     def intiliaze_withdraw_totals(self):
         """Function to initiliaze withdrawal amounts for each valid account.""" 
         TxnProcess.withdraw_limits.clear()
