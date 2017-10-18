@@ -1,6 +1,3 @@
-import Main
-import TxnProcess
-
 class ErrorHandler:
     """Class used for error handling by QBasic program.
     Uses dictionary to map error codes to error strings.
@@ -17,9 +14,10 @@ class ErrorHandler:
         self.error_codes["ERR_INVALIDACCOUNT"] = "Error Invalid account number"
         self.error_codes["ERR_INVALIDAMOUNT"] = "Error Invalid amount entered"
         self.error_codes["ERR_INVALIDNAME"] = "Error Invalid name entered"
-        self.error_codes["ERR_UNPRIVILEGED"] = "Error Invalid Mode"
+        self.error_codes["ERR_UNPRIVILEGED"] = "Error Invalid User Type, increased priviledges required."
         self.error_codes["ERR_WITHDRAWLIMIT"] = "Error Withdraw Limit reached for \"From\" account."
         self.error_codes["ERR_SAMEACCOUNT"] = "Error \"From\" and \"To\" account are the same."
+        self.error_codes["ERR_INVALIDACCFILE"] = "Error Invalid account number in valid accounts file!"
 
     def process_error(self, errorCode):
         """Function to send error string to stdout."""
