@@ -22,9 +22,9 @@ class Utility:
     
     def intiliaze_withdraw_totals(self):
         """Function to initiliaze withdrawal amounts for each valid account.""" 
-        TxnProcess.withdrawLimits.clear()
+        TxnProcess.withdraw_limits.clear()
         for accNum in TxnProcess.valid_acc_list:
-            TxnProcess.withdrawLimits[accNum] = 0
+            TxnProcess.withdraw_limits[accNum] = 0
 
     def create_txn_msg(self, txnCode, toAcc, amount, fromAcc, accName):
         """Function to form the transaction msg to be added into the transaction summary file.""" 
@@ -57,9 +57,9 @@ class Utility:
 
         return msg
 
-    def create_txn_summary_file(self, listTxnMsgs):
+    def create_txn_summary_file(self, transactionSummaryFile, listTxnMsgs):
         """Function to write all cached transaction messages to transaction summary file."""
-        myfile = open('txn_summary_file.txt', 'w')
+        myfile = open(transactionSummaryFile, 'w')
         for line in listTxnMsgs:
                 #var1, var2 = line.split(",");
                 myfile.writelines(line + "\n")
@@ -105,7 +105,7 @@ class Utility:
         """Function to check if passed in account will surpass daily withdraw limit by completing pending withdrawal.
         Returns False if limit will be reached with pending withdrawal, true if withdrawal is valid.
         """
-        newAmount = TxnProcess.withdrawLimits[accNum] + amount
+        newAmount = TxnProcess.withdraw_limits[accNum] + amount
         # Machine user can only withdraw max $1000 from a single acount in a single session
         if(newAmount > 100000 and not TxnProcess.login_user_agent):
             return False
