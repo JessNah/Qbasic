@@ -1,15 +1,30 @@
 #!/usr/bin/env python3
-
 import TxnProcess
 import sys
 
-"""This is the main function
-This is used to call out for user input transaction codes
+"""This is the main program.
+This program serves to meet the requirements of a Front End banking system.
+Created as part of Software Quality Assurance course, CISC/CMPE 327 at Queen's University.
+
+A user is able to login as either machine or agent, able to perform transactions such as 
+deposit, withdraw, createacct, deleteacct, and transfers.
+Valid accounts are verified by a valid accounts file provided by the back end software.
+The back end processes daily transactions by a transaction summary file created by the front end (this application).
+
+The program takes the following inputs:
+    - stdIn, used for receiving user commands.
+    - valid accounts file, file to use as a record of the valid accounts (provided by back end).
+    - transaction summary file, file used after the "logout" command to write all valid 
+      transactions processed throughout the session. Where a session is defined as login -> logout.
+
+The program can be executed using the following usage example:
+Usage Example: \"./Main.py validaccounts.txt transactionsummary.txt
 """
 if __name__ == '__main__':
 
     txn = TxnProcess.TxnProcess()
     
+    #Verify the correct number of input parameters are provided.
     if (len(sys.argv) != 3):
         print("Please provide a valid accounts file AND transaction summary file.")
         print("Usage Example: \"./Main.py validaccounts.txt transactionsummary.txt\"")
@@ -22,6 +37,7 @@ if __name__ == '__main__':
     print("Valid transaction codes are login, logout, deposit, deposit, withdraw, createacct, deleteacct, and transfer.")
     user_input = input("Please begin by logging in: ").upper()
 
+    #Check for a transaction code provided by the user.
     while(user_input != None):
         status = True
         
@@ -33,6 +49,7 @@ if __name__ == '__main__':
             if(txn.txn_logout() == False):
                 status = False
             else:
+                #If logout is successfull, exit the program (only one logout per session)
                 sys.exit()    
 
         elif(user_input == "DEPOSIT"):
