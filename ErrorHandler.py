@@ -3,7 +3,8 @@ class ErrorHandler:
     Uses dictionary to map error codes to error strings.
     """
 
-    error_codes = {}               #dictionary of error codes
+    #dictionary of error codes
+    error_codes = {}               
 
     def __init__(self):
         """Initialize error code to error string mapping."""

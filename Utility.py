@@ -15,13 +15,15 @@ class Utility:
         """ 
         with open(fileName) as file:
             for line in file:
-                line = line.strip() #remove leading and trailing spaces.
+                #remove leading and trailing spaces.
+                line = line.strip() 
                 try:
                     line = int(line)
                 except ValueError:
                     err.process_error("ERR_INVALIDACCFILE")
                     sys.exit()
-                TxnProcess.valid_acc_list.append(line) #storing everything in memory!
+                #storing everything in memory!
+                TxnProcess.valid_acc_list.append(line) 
 
     def intiliaze_withdraw_totals(self):
         """Function to initiliaze withdrawal amounts for each valid account.""" 
@@ -64,7 +66,6 @@ class Utility:
         """Function to write all cached transaction messages to transaction summary file."""
         myfile = open(transactionSummaryFile, 'w')
         for line in listTxnMsgs:
-                #var1, var2 = line.split(",");
                 myfile.writelines(line + "\n")
         myfile.close()
 
