@@ -18,7 +18,7 @@ The program takes the following inputs:
       transactions processed throughout the session. Where a session is defined as login -> logout.
 
 The program can be executed using the following usage example:
-Usage Example: \"./Main.py validaccounts.txt transactionsummary.txt
+Usage Example: \"./QBasic.py validaccounts.txt transactionsummary.txt
 """
 if __name__ == '__main__':
 
@@ -27,7 +27,7 @@ if __name__ == '__main__':
     #Verify the correct number of input parameters are provided.
     if (len(sys.argv) != 3):
         print("Please provide a valid accounts file AND transaction summary file.")
-        print("Usage Example: \"./Qbasic.py validaccounts.txt transactionsummary.txt\"")
+        print("Usage Example: \"./QBasic.py validaccounts.txt transactionsummary.txt\"")
         sys.exit()
     else:
         txn.valid_accounts_file = sys.argv[1]
