@@ -27,7 +27,7 @@ if __name__ == '__main__':
     #Verify the correct number of input parameters are provided.
     if (len(sys.argv) != 3):
         print("Please provide a valid accounts file AND transaction summary file.")
-        print("Usage Example: \"./Main.py validaccounts.txt transactionsummary.txt\"")
+        print("Usage Example: \"./Qbasic.py validaccounts.txt transactionsummary.txt\"")
         sys.exit()
     else:
         txn.valid_accounts_file = sys.argv[1]
