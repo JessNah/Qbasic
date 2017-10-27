@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import TxnProcess
+import Utility
 import sys
 
 """This is the main program.
@@ -23,6 +24,7 @@ Usage Example: \"./QBasic.py validaccounts.txt transactionsummary.txt
 if __name__ == '__main__':
 
     txn = TxnProcess.TxnProcess()
+    utl = Utility.Utility()
     
     #Verify the correct number of input parameters are provided.
     if (len(sys.argv) != 3):
@@ -35,7 +37,7 @@ if __name__ == '__main__':
     
     print("Welcome. Please enter appropriate transaction codes to use the system.")
     print("Valid transaction codes are login, logout, deposit, deposit, withdraw, createacct, deleteacct, and transfer.")
-    user_input = input("Please begin by logging in: ").upper()
+    user_input = utl.get_input("Please begin by logging in: ")
 
     #Check for a transaction code provided by the user.
     while(user_input != None):
@@ -77,6 +79,6 @@ if __name__ == '__main__':
 
         #receive next user input
         if(status):
-            user_input = input("Please enter the next transaction code to proceed (example: deposit): ").upper()
+            user_input = utl.get_input("Please enter the next transaction code to proceed (example: deposit): ")
         else:
-            user_input = input("Sorry we encountered an issue. Please try another transaction code: ").upper()
+            user_input = utl.get_input("Sorry we encountered an issue. Please try another transaction code: ")

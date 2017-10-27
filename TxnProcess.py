@@ -38,7 +38,7 @@ class TxnProcess:
             return False
 
         #prompt user for the session type
-        sessType = input("Please enter the desired session type (Machine/Agent): ").upper()
+        sessType = utl.get_input("Please enter the desired session type (Machine/Agent): ")
         if(sessType != "MACHINE" and sessType != "AGENT"):
             err.process_error("INVALID_SESSION")
             return False
@@ -89,7 +89,7 @@ class TxnProcess:
             return False
         
         try:
-            accNum = int(input("Please enter the account number you wish to deposit in: ").upper())
+            accNum = int(utl.get_input("Please enter the account number you wish to deposit in: "))
         except ValueError:
             #Handle the exception if user did not enter an integer
             err.process_error("ERR_INVALIDACCOUNT")
@@ -101,7 +101,7 @@ class TxnProcess:
             return False
             
         try:
-            amount = int(input("Please enter the amount you wish to deposit: ").upper())
+            amount = int(utl.get_input("Please enter the amount you wish to deposit: "))
         except ValueError:
             #Handle the exception if user did not enter an integer
             err.process_error("ERR_INVALIDAMOUNT")
@@ -131,7 +131,7 @@ class TxnProcess:
             return False
             
         try:
-            accNum = int(input("Please enter the new account number: ").upper())
+            accNum = int(utl.get_input("Please enter the new account number: "))
         except ValueError:
             #Handle the exception if user did not enter an integer
             err.process_error("ERR_INVALIDACCOUNT")
@@ -142,7 +142,7 @@ class TxnProcess:
             err.process_error("ERR_INVALIDACCOUNT")
             return False
             
-        accName = input("Please enter the name of account owner: ").upper()
+        accName = utl.get_input("Please enter the name of account owner: ")
         
         #Check if account name provided is valid.
         if(not utl.is_name_valid(accName)):
@@ -171,7 +171,7 @@ class TxnProcess:
             return False
         
         try:
-            accNum = int(input("Please enter the account number you wish to delete: ").upper())
+            accNum = int(utl.get_input("Please enter the account number you wish to delete: "))
         except ValueError:
             #Handle the exception if user did not enter an integer
             err.process_error("ERR_INVALIDACCOUNT")
@@ -204,7 +204,7 @@ class TxnProcess:
             return False
             
         try:
-            accNum = int(input("Please enter the account number you wish to withdraw from: ").upper())
+            accNum = int(utl.get_input("Please enter the account number you wish to withdraw from: "))
         except ValueError:
             #Handle the exception if user did not enter an integer
             err.process_error("ERR_INVALIDACCOUNT")
@@ -216,7 +216,7 @@ class TxnProcess:
             return False
         
         try:    
-            amount = int(input("Please enter the amount you wish to withdraw: ").upper())
+            amount = int(utl.get_input("Please enter the amount you wish to withdraw: "))
         except ValueError:
             #Handle the exception if user did not enter an integer
             err.process_error("ERR_INVALIDAMOUNT")
@@ -249,7 +249,7 @@ class TxnProcess:
             return False
             
         try:
-            fromAccNum = int(input("Please enter the \"From\" account number: ").upper())
+            fromAccNum = int(utl.get_input("Please enter the \"From\" account number: "))
         except ValueError:
             #Handle the exception if user did not enter an integer
             err.process_error("ERR_INVALIDACCOUNT")
@@ -261,7 +261,7 @@ class TxnProcess:
             return False
             
         try:    
-            toAccNum = int(input("Please enter the \"To\" account number: ").upper())
+            toAccNum = int(utl.get_input("Please enter the \"To\" account number: "))
         except ValueError:
             #Handle the exception if user did not enter an integer
             err.process_error("ERR_INVALIDACCOUNT")
@@ -278,7 +278,7 @@ class TxnProcess:
             return False
             
         try:    
-            amount = int(input("Please enter the amount you wish to transfer: ").upper())
+            amount = int(utl.get_input("Please enter the amount you wish to transfer: "))
         except ValueError:
             #Handle the exception if user did not enter an integer
             err.process_error("ERR_INVALIDAMOUNT")

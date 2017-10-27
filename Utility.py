@@ -114,3 +114,11 @@ class Utility:
         if(newAmount > 100000 and not TxnProcess.login_user_agent):
             return False
         return True
+        
+    def get_input(self, prompt):
+        """
+        """
+        inputValue = input(prompt).upper()
+        print("\nUser Entered:" + inputValue)
+        
+        return inputValue
