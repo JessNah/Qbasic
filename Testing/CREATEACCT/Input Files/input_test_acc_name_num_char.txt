@@ -1,0 +1,12 @@
+login
+agent
+createacct
+1000329
+ac
+createacct
+1000329
+accountThree
+createacct
+1000329
+acccccccccccoooooooouuuuuuuuuuuuuuuuunnnnnnnnnnnnnnnnnntttttttttttttttTTTTTTTTTTTTHHHHHHHHHHRRRRRRRRRREEEEEEEEEEE
+logout

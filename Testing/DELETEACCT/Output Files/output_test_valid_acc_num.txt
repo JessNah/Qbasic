@@ -1,0 +1,4 @@
+Successfully logged in as using agent mode
+Account number 1000329 with name accountThree deleted
+Account number 1000329 with name accountThree could not be deleted, account does not exist.
+Successfully logged out of agent mode

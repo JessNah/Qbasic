@@ -1,0 +1,8 @@
+* Verify account number 1000330 with name "accountFour" does not exist before test. *
+
+login
+machine
+deposit
+1000330
+10000
+logout

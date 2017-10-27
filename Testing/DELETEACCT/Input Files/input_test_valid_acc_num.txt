@@ -1,0 +1,11 @@
+* Verify account number 1000329 with name "accountThree" exists before test, and that account number 1000330 with name "accountFour" does not exist. *
+
+login
+agent
+deleteacct
+1000329
+accountThree
+deleteacct
+1000330
+accountFour
+logout

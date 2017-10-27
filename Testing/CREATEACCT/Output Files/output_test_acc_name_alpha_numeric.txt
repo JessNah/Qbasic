@@ -1,0 +1,5 @@
+Successfully logged in as using agent mode
+Account creation request denied, account name invalid
+Account number 1000329 with name accountThree created
+Account creation request denied, account name invalid
+Successfully logged out of agent mode

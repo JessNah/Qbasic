@@ -1,0 +1,14 @@
+* Verify that account number 1000329 with name "accountThree" exists before test. *
+
+login
+machine
+withdraw
+1000329
+10000
+withdraw
+1000329
+90000
+withdraw
+1000329
+1
+logout

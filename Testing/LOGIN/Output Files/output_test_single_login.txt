@@ -1,0 +1,3 @@
+Successfully logged in using machine mode
+Log in request not accepted, machine already logged in.
+Successfully logged out of machine mode

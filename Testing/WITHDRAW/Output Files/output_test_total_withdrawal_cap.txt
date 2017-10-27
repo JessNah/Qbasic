@@ -1,0 +1,5 @@
+Successfully logged in as using machine mode
+Withdrew 10000 cents from account number 1000329 successfully
+Withdrew 90000 cents from account number 1000329 successfully
+Withdraw request denied, withdraw limit exceeded for machine mode
+Successfully logged out of machine mode

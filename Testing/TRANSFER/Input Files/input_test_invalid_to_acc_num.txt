@@ -1,0 +1,9 @@
+* Verify account number 1000223 exists before starting test, and that account number 1000327 does NOT exist. * 
+
+login
+machine
+transfer 
+1000223 
+1000327 
+100000
+logout

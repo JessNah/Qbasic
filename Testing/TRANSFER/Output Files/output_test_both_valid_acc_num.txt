@@ -1,0 +1,3 @@
+Successfully logged in as using machine mode
+Transferred 100000 cents from 1000223 to 1000327
+Successfully logged out of machine mode

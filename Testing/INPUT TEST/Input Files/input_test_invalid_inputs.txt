@@ -1,0 +1,6 @@
+login
+machine
+dog
+cat
+wolf
+logout

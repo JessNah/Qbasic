@@ -1,0 +1,4 @@
+Successfully logged in using machine mode
+Successfully logged out of machine mode
+Successfully logged in using agent mode
+Successfully logged out of agent mode

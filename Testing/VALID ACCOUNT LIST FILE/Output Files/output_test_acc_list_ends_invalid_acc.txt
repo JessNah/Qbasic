@@ -1,0 +1,1 @@
+Account List File Validated. List ends with the invalid account number (0000000).

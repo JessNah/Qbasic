@@ -1,0 +1,5 @@
+Successfully logged in as using agent mode
+Deposit request denied, invalid deposit amount.
+110000 cents deposited into account number 1000329 successfully
+Deposit request denied, invalid deposit amount.
+Successfully logged out of agent mode

@@ -1,0 +1,4 @@
+Successfully logged in using agent mode
+Transferred 100000 cents from 1000223 to 1000327
+Account number 1000328 created
+Successfully logged out of agent mode

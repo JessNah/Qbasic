@@ -1,0 +1,3 @@
+Successfully logged in as using agent mode
+Account creation request denied, invalid account number
+Successfully logged out of agent mode

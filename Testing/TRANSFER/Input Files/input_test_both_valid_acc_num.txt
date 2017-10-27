@@ -1,0 +1,9 @@
+* Verify account numbers 1000223 and 1000327 don’t exist before starting test. * 
+
+login
+machine
+transfer 
+1000223 
+1000327 
+100000
+logout

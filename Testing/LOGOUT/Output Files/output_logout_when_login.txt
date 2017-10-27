@@ -1,0 +1,2 @@
+Successfully logged in using machine mode
+Successfully logged out of machine mode

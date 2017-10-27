@@ -1,0 +1,3 @@
+Successfully logged in as using machine mode
+Transfer request denied, invalid account number
+Successfully logged out of machine mode

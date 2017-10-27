@@ -1,0 +1,3 @@
+Successfully logged in as using machine mode
+Withdrew 10000 cents from account number 1000329 successfully
+Successfully logged out of machine mode

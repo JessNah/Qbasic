@@ -1,0 +1,3 @@
+Successfully logged in as using machine mode
+Account creation request denied, invalid priveledges
+Successfully logged out of machine mode

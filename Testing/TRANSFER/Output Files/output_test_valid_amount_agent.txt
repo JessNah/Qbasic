@@ -1,0 +1,5 @@
+Successfully logged in as using agent mode
+Transfer request denied, invalid amount
+Transferred 1000000 cents from 1000223 to 1000327
+Transfer request denied, invalid amount
+Successfully logged out of agent mode

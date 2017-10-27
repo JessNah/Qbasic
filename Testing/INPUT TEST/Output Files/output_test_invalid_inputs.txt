@@ -1,0 +1,5 @@
+Successfully logged in as using machine mode
+Invalid input command "dog"
+Invalid input command "cat"
+Invalid input command "wolf"
+Successfully logged out of machine mode
