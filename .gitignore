@@ -1,0 +1,6 @@
+
+*.pyc
+__pycache__/main.cpython-36.pyc
+__pycache__/errorHandler.cpython-36.pyc
+Testing/TRANSFER/Input Files/input_test_valid_amount.txt
+Testing/TRANSFER/Expected Output Files/transaction_file_test_valid_amount.txt
