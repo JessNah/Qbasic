@@ -1,3 +1,7 @@
-Line 1 Passed
-Line 2 Passed
-Line 3 Failed
+Welcome. Please enter appropriate transaction codes to use the system.
+Valid transaction codes are login, logout, deposit, deposit, withdraw, createacct, deleteacct, and transfer.
+Please begin by logging in: 
+User Entered:LOGIN
+Please enter the desired session type (Machine/Agent): 
+User Entered:MACHINE
+Error Invalid account number in valid accounts file!
