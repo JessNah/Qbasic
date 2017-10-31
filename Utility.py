@@ -119,6 +119,10 @@ class Utility:
         """
         """
         inputValue = input(prompt).upper()
+        
+        if (inputValue == "Q" or inputValue == "QUIT"):
+            sys.exit()
+        
         print("\nUser Entered:" + inputValue)
         
         return inputValue

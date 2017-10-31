@@ -1,2 +1,4 @@
-test_before_login,Testing/LOGIN/Input Files/valid_accounts_file_empty.txt,Testing/LOGIN/Input Files/input_test_before_login.txt,Testing/LOGIN/Expected Output Files/transaction_file_test_before_login.txt,Testing/LOGIN/Expected Output Files/output_test_before_login.txt
-test_after_login,Testing/LOGIN/Input Files/valid_accounts_file_empty.txt,Testing/LOGIN/Input Files/input_test_after_login.txt,Testing/LOGIN/Expected Output Files/transaction_file_test_before_login.txt,Testing/LOGIN/Expected Output Files/output_test_before_login.txt
+DEPOSIT,test_before_login,transaction_file_empty
+
+DEPOSIT,test_valid_acc_num,transaction_file_test_valid_acc_num
+
