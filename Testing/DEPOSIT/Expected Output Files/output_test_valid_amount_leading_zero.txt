@@ -1,0 +1,5 @@
+Successfully logged in as using machine mode
+Deposit request denied, invalid deposit amount.
+90000 cents deposited into account number 1000329 successfully
+Deposit request denied, invalid deposit amount.
+Successfully logged out of machine mode

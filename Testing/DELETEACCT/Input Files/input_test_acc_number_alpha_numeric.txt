@@ -1,0 +1,12 @@
+login
+agent
+deleteacct
+100*)29
+"AccountOne"
+deleteacct
+1000329
+accountThree
+deleteacct
+10HH0329
+"AccountTwo"
+logout
