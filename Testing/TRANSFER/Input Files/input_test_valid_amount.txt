@@ -1,17 +1,18 @@
-* Verify account numbers 1000223 and 1000327 exist before starting test. * 
-
 login
 machine
-transfer 
-1000223 
-1000327 
+transfer
+1000223
+1000327
 -1
-transfer 
-1000223 
-1000327 
+transfer
+1000223
+1000327
 10000
-transfer 
-1000223 
-1000327 
+transfer
+1000223
+1000327
 100000
 logout
+
+
+* Verify account numbers 1000223 and 1000327 exist before starting test. * 
