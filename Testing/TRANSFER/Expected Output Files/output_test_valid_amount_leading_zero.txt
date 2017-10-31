@@ -1,5 +1,35 @@
-Successfully logged in as using machine mode
-Transfer request denied, invalid amount
-Transferred 10000 cents from 1000223 to 1000327
-Transfer request denied, invalid amount
-Successfully logged out of machine mode
+Welcome. Please enter appropriate transaction codes to use the system.
+Valid transaction codes are login, logout, deposit, deposit, withdraw, createacct, deleteacct, and transfer.
+Please begin by logging in: 
+User Entered:LOGIN
+Please enter the desired session type (Machine/Agent): 
+User Entered:AGENT
+Please enter the next transaction code to proceed (example: deposit): 
+User Entered:TRANSFER
+Please enter the "From" account number: 
+User Entered:1000223
+Please enter the "To" account number: 
+User Entered:1000327
+Please enter the amount you wish to transfer: 
+User Entered:0100
+Error Invalid amount entered
+Sorry we encountered an issue. Please try another transaction code: 
+User Entered:TRANSFER
+Please enter the "From" account number: 
+User Entered:1000223
+Please enter the "To" account number: 
+User Entered:1000327
+Please enter the amount you wish to transfer: 
+User Entered:10000
+Please enter the next transaction code to proceed (example: deposit): 
+User Entered:TRANSFER
+Please enter the "From" account number: 
+User Entered:1000223
+Please enter the "To" account number: 
+User Entered:1000327
+Please enter the amount you wish to transfer: 
+User Entered:00001
+Error Invalid amount entered
+Sorry we encountered an issue. Please try another transaction code:
+User Entered:LOGOUT
+Successfully Logged out of the system.

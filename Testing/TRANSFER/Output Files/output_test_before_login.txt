@@ -4,3 +4,9 @@ Please begin by logging in:
 User Entered:TRANSFER
 Error already logged out of the system.
 Sorry we encountered an issue. Please try another transaction code: 
+User Entered:1000223
+Sorry we encountered an issue. Please try another transaction code: 
+User Entered:1000327
+Sorry we encountered an issue. Please try another transaction code: 
+User Entered:100000
+Sorry we encountered an issue. Please try another transaction code: 

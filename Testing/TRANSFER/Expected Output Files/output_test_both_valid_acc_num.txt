@@ -1,3 +1,17 @@
-Successfully logged in as using machine mode
-Transferred 100000 cents from 1000223 to 1000327
-Successfully logged out of machine mode
+Welcome. Please enter appropriate transaction codes to use the system.
+Valid transaction codes are login, logout, deposit, deposit, withdraw, createacct, deleteacct, and transfer.
+Please begin by logging in:
+User Entered:LOGIN
+Please enter the desired session type (Machine/Agent):
+User Entered:MACHINE
+Please enter the next transaction code to proceed (example: deposit):
+User Entered:TRANSFER
+Please enter the "From" account number:
+User Entered:1000223
+Please enter the "To" account number:
+User Entered:1000327
+Please enter the amount you wish to transfer:
+User Entered:100000
+Please enter the next transaction code to proceed (example: deposit):
+User Entered:LOGOUT
+Successfully Logged out of the system.
