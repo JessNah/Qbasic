@@ -1,5 +1,3 @@
-* Ensure an account with number 1000329 already exists. *
-
 login
 agent
 createacct

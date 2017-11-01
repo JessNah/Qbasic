@@ -1,2 +1,8 @@
-*Needs to be filled in -JC*
-
+Welcome. Please enter appropriate transaction codes to use the system.
+Valid transaction codes are login, logout, deposit, deposit, withdraw, createacct, deleteacct, and transfer.
+Please begin by logging in: 
+User Entered:CREATEACCT
+Error already logged out of the system.
+Sorry we encountered an issue. Please try another transaction code: 
+User Entered:1000223
+Sorry we encountered an issue. Please try another transaction code: 

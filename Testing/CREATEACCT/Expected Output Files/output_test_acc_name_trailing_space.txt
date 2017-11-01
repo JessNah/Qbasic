@@ -1,5 +1,29 @@
-Successfully logged in as using agent mode
-Account creation request denied, account name invalid
-Account number 1000329 with name accountThree created
-Account creation request denied, account name invalid
-Successfully logged out of agent mode
+Welcome. Please enter appropriate transaction codes to use the system.
+Valid transaction codes are login, logout, deposit, deposit, withdraw, createacct, deleteacct, and transfer.
+Please begin by logging in: 
+User Entered:LOGIN
+Please enter the desired session type (Machine/Agent): 
+User Entered:AGENT
+Please enter the next transaction code to proceed (example: deposit): 
+User Entered:CREATEACCT
+Please enter the new account number: 
+User Entered:1000329
+Please enter the name of account owner: 
+User Entered: ACCOUNTTHREE
+Error Invalid name entered
+Sorry we encountered an issue. Please try another transaction code: 
+User Entered:CREATEACCT
+Please enter the new account number: 
+User Entered:1000329
+Please enter the name of account owner: 
+User Entered:ACCOUNTTHREE
+Please enter the next transaction code to proceed (example: deposit): 
+User Entered:CREATEACCT
+Please enter the new account number: 
+User Entered:1000330
+Please enter the name of account owner: 
+User Entered:ACCOUNTTHREE 
+Error Invalid name entered
+Sorry we encountered an issue. Please try another transaction code: 
+User Entered:LOGOUT
+Successfully Logged out of the system.
