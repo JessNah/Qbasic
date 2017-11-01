@@ -1,1 +1,6 @@
-Log out denied, no login active.
+Welcome. Please enter appropriate transaction codes to use the system.
+Valid transaction codes are login, logout, deposit, deposit, withdraw, createacct, deleteacct, and transfer.
+Please begin by logging in: 
+User Entered:LOGOUT
+Error already logged out of the system.
+Sorry we encountered an issue. Please try another transaction code: 
