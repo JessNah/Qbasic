@@ -118,7 +118,7 @@ class Utility:
     def get_input(self, prompt):
         """
         """
-        inputValue = input(prompt).upper()
+        inputValue = raw_input(prompt).upper()
         
         if (inputValue == "Q" or inputValue == "QUIT"):
             sys.exit()

@@ -1,4 +1,9 @@
-Successfully logged in using machine mode
-Successfully logged out of machine mode
-Successfully logged in using agent mode
-Successfully logged out of agent mode
+Welcome. Please enter appropriate transaction codes to use the system.
+Valid transaction codes are login, logout, deposit, deposit, withdraw, createacct, deleteacct, and transfer.
+Please begin by logging in: 
+User Entered:LOGIN
+Please enter the desired session type (Machine/Agent): 
+User Entered:MACHINE
+Please enter the next transaction code to proceed (example: deposit): 
+User Entered:LOGOUT
+Successfully Logged out of the system.

@@ -1,1 +1,0 @@
-Log in request not accepted, "dog" is not a valid login type.
