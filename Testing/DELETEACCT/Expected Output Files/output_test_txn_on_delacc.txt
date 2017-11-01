@@ -1,4 +1,24 @@
-Successfully logged in as using agent mode
-Account number 1000329 with name accountThree deleted
-Transfer request denied, account was recently deleted
-Successfully logged out of agent mode
+Welcome. Please enter appropriate transaction codes to use the system.
+Valid transaction codes are login, logout, deposit, deposit, withdraw, createacct, deleteacct, and transfer.
+Please begin by logging in: login
+User Entered:LOGIN
+Please enter the desired session type (Machine/Agent): agent
+User Entered:AGENT
+Please enter the next transaction code to proceed (example: deposit): deleteacct
+User Entered:DELETEACCT
+Please enter the account number you wish to delete: 1000329
+User Entered:1000329
+Please enter the name of account owner: transfer
+User Entered:TRANSFER
+Please enter the next transaction code to proceed (example: deposit): transfer  
+User Entered:TRANSFER
+Please enter the "From" account number: 1000223
+User Entered:1000223
+Please enter the "To" account number: 1000329
+User Entered:1000329
+Error Invalid account number
+Sorry we encountered an issue. Please try another transaction code: 100000
+User Entered:100000
+Sorry we encountered an issue. Please try another transaction code: logout
+User Entered:LOGOUT
+Successfully Logged out of the system.

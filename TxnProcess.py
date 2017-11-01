@@ -182,7 +182,7 @@ class TxnProcess:
             err.process_error("ERR_INVALIDACCOUNT")
             return False
             
-        accName = input("Please enter the name of account owner: ").upper()
+        accName = utl.get_input("Please enter the name of account owner: ")
         if(not utl.is_name_valid(accName)):
             err.process_error("ERR_INVALIDNAME")
             return False
