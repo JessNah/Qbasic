@@ -12,27 +12,27 @@ class Utility:
     def process_account_file(self, fileName):
         """Function to process valid accounts file.
         Valid account numbers are stored in TxnProcess.valid_acc_list
-        """ 
+        """
         with open(fileName) as file:
             for line in file:
                 #remove leading and trailing spaces.
-                line = line.strip() 
+                line = line.strip()
                 try:
                     line = int(line)
                 except ValueError:
                     err.process_error("ERR_INVALIDACCFILE")
                     sys.exit()
                 #storing everything in memory!
-                TxnProcess.valid_acc_list.append(line) 
+                TxnProcess.valid_acc_list.append(line)
 
     def intiliaze_withdraw_totals(self):
-        """Function to initiliaze withdrawal amounts for each valid account.""" 
+        """Function to initiliaze withdrawal amounts for each valid account."""
         TxnProcess.withdraw_limits.clear()
         for accNum in TxnProcess.valid_acc_list:
             TxnProcess.withdraw_limits[accNum] = 0
 
     def create_txn_msg(self, txnCode, toAcc, amount, fromAcc, accName):
-        """Function to form the transaction msg to be added into the transaction summary file.""" 
+        """Function to form the transaction msg to be added into the transaction summary file."""
         msg = ""
 
         if(txnCode == None):
@@ -75,7 +75,7 @@ class Utility:
             return True
         else:
             return False
-    
+
     def is_account_unique(self, accNum):
         """Function to check if passed in account number is unique(or new)."""
         if(accNum in TxnProcess.valid_acc_list or accNum in TxnProcess.new_acc_list):
@@ -90,7 +90,7 @@ class Utility:
         # Machine amount limit
         if((amount < 0 or amount > 100000) and not TxnProcess.login_user_agent):
             return False
-        # Agent amount limit    
+        # Agent amount limit
         if((amount < 0 or amount >= 100000000) and TxnProcess.login_user_agent):
             return False
         return True
@@ -114,15 +114,15 @@ class Utility:
         if(newAmount > 100000 and not TxnProcess.login_user_agent):
             return False
         return True
-        
+
     def get_input(self, prompt):
         """
         """
-        inputValue = raw_input(prompt).upper()
-        
+        inputValue = input(prompt).upper()
+
         if (inputValue == "Q" or inputValue == "QUIT"):
             sys.exit()
-        
+
         print("\nUser Entered:" + inputValue)
-        
+
         return inputValue

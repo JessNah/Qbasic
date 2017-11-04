@@ -1,3 +1,6 @@
 withdraw
 1000223
 100000
+login
+machine
+logout

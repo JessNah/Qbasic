@@ -1,5 +1,3 @@
-* Verify that account number 1000329 with name "accountThree" exists before test. *
-
 login
 machine
 withdraw

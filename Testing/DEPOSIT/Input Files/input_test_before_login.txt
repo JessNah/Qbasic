@@ -1,4 +1,6 @@
 deposit
 1000223
 100000
-q
+login
+machine
+logout

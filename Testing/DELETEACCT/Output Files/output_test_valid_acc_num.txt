@@ -1,0 +1,26 @@
+Welcome. Please enter appropriate transaction codes to use the system.
+Valid transaction codes are login, logout, deposit, deposit, withdraw, createacct, deleteacct, and transfer.
+Please begin by logging in: 
+User Entered:* VERIFY ACCOUNT NUMBER 1000329 WITH NAME "ACCOUNTTHREE" EXISTS BEFORE TEST, AND THAT ACCOUNT NUMBER 1000330 WITH NAME "ACCOUNTFOUR" DOES NOT EXIST. *
+Sorry we encountered an issue. Please try another transaction code: 
+User Entered:
+Sorry we encountered an issue. Please try another transaction code: 
+User Entered:LOGIN
+Please enter the desired session type (Machine/Agent): 
+User Entered:AGENT
+Please enter the next transaction code to proceed (example: deposit): 
+User Entered:DELETEACCT
+Please enter the account number you wish to delete: 
+User Entered:1000329
+Please enter the name of account owner: 
+User Entered:ACCOUNTTHREE
+Please enter the next transaction code to proceed (example: deposit): 
+User Entered:DELETEACCT
+Please enter the account number you wish to delete: 
+User Entered:1000330
+Error Invalid account number
+Sorry we encountered an issue. Please try another transaction code: 
+User Entered:ACCOUNTFOUR
+Sorry we encountered an issue. Please try another transaction code: 
+User Entered:LOGOUT
+Successfully Logged out of the system.
