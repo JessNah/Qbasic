@@ -1,24 +1,24 @@
 Welcome. Please enter appropriate transaction codes to use the system.
 Valid transaction codes are login, logout, deposit, deposit, withdraw, createacct, deleteacct, and transfer.
-Please begin by logging in: login
+Please begin by logging in: 
 User Entered:LOGIN
-Please enter the desired session type (Machine/Agent): agent
+Please enter the desired session type (Machine/Agent): 
 User Entered:AGENT
-Please enter the next transaction code to proceed (example: deposit): deleteacct
+Please enter the next transaction code to proceed (example: deposit): 
 User Entered:DELETEACCT
-Please enter the account number you wish to delete: 1000329
+Please enter the account number you wish to delete: 
 User Entered:1000329
-Please enter the name of account owner: transfer
+Please enter the name of account owner: 
+User Entered:ACCOUNTTHREE
+Please enter the next transaction code to proceed (example: deposit): 
 User Entered:TRANSFER
-Please enter the next transaction code to proceed (example: deposit): transfer  
-User Entered:TRANSFER
-Please enter the "From" account number: 1000223
+Please enter the "From" account number: 
 User Entered:1000223
-Please enter the "To" account number: 1000329
+Please enter the "To" account number: 
 User Entered:1000329
 Error Invalid account number
-Sorry we encountered an issue. Please try another transaction code: 100000
+Sorry we encountered an issue. Please try another transaction code: 
 User Entered:100000
-Sorry we encountered an issue. Please try another transaction code: logout
+Sorry we encountered an issue. Please try another transaction code: 
 User Entered:LOGOUT
 Successfully Logged out of the system.

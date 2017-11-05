@@ -30,6 +30,6 @@ User Entered:1000327
 Please enter the amount you wish to transfer: 
 User Entered:100000000
 Error Invalid amount entered
-Sorry we encountered an issue. Please try another transaction code:
+Sorry we encountered an issue. Please try another transaction code: 
 User Entered:LOGOUT
 Successfully Logged out of the system.
