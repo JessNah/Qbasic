@@ -75,6 +75,15 @@ class TxnProcess:
         #Add EOS tag to transaction summary buffer
         txn_message_list.append(utl.create_txn_msg("EOS", None, None, None, None))
 
+        #check if the transaction summary file is valid
+        if(utl.validTxnList(txn_message_list) == False):
+            #clear txn msg listTxnMsgs
+            del txn_message_list[:]
+            #add just the eos line
+            txn_message_list.append(utl.create_txn_msg("EOS", None, None, None, None))
+            #process error
+            err.process_error("ERR_TXNFILE")
+
         #create the transaction summary file
         utl.create_txn_summary_file(self.transaction_summary_file, txn_message_list)
 
@@ -94,7 +103,7 @@ class TxnProcess:
             #Handle the exception if user did not enter an integer
             err.process_error("ERR_INVALIDACCOUNT")
             return False
-            
+
         #Account number must be seven digits long.
         #This will also catch errors with leading zeroes as the cast to integer will remove these and create a number < 7 digits.
         if(len(str(accNum)) != 7):
@@ -142,13 +151,13 @@ class TxnProcess:
             #Handle the exception if user did not enter an integer
             err.process_error("ERR_INVALIDACCOUNT")
             return False
-        
+
         #Account number must be seven digits long.
         #This will also catch errors with leading zeroes as the cast to integer will remove these and create a number < 7 digits.
         if(len(str(accNum)) != 7):
             err.process_error("ERR_INVALIDACCOUNT")
             return False
-        
+
         #Check if account number provided is unique.
         if(not utl.is_account_unique(accNum)):
             err.process_error("ERR_INVALIDACCOUNT")
@@ -188,7 +197,7 @@ class TxnProcess:
             #Handle the exception if user did not enter an integer
             err.process_error("ERR_INVALIDACCOUNT")
             return False
-            
+
         #Account number must be seven digits long.
         #This will also catch errors with leading zeroes as the cast to integer will remove these and create a number < 7 digits.
         if(len(str(accNum)) != 7):

@@ -1,6 +1,7 @@
 import TxnProcess
 import ErrorHandler
 import sys
+import re
 
 err = ErrorHandler.ErrorHandler()
 
@@ -119,9 +120,9 @@ class Utility:
         return True
 
     def get_input(self, prompt):
+        """Function to get input from the user by first presenting the given prompt to them.
         """
-        """
-        
+
         # Python 2.x requires use of raw_input() if reading from std input file.
         # While Python 3.x has merged raw_input() functionality into the standard input() function.
         if sys.version_info[0] < 3:
@@ -135,3 +136,101 @@ class Utility:
         print("\nUser Entered:" + inputValue)
 
         return inputValue
+
+    def validTxnList(self, txn_message_list):
+        """Function to check if the list of transactionsummary messages is of valid format.
+        Returns False if incorrect format
+        """
+
+        for string in txn_message_list:
+            # check max 61 characters
+            count = 0
+            for char in string:
+                count = count + 1
+                if(count > 61):
+                    return False
+            # test first 3 characters is a valid txn code
+            txnCode = string[:3]
+            if(txnCode != "DEP" and txnCode != "WDR" and txnCode != "XFR" and txnCode != "NEW" and txnCode != "DEL" and txnCode != "EOS"):
+                return False
+            #test that all the individual elements are seperated by exactly one space
+            count = 0
+            for char in string:
+                if(char == " "):
+                    count = count + 1
+                    if(count > 4):
+                        return False
+            #test 7 digit account number TO
+            substring = string[4:]
+            #check first character is no zero
+            firstChar = substring[0:0]
+            if(firstChar == "0"):
+                return False
+            count = 0
+            for char in substring:
+                if(char != " "):
+                    count+=1
+                else:
+                    break
+                if(count > 7):
+                    return False
+            #test 7 digit account number FROM
+            #find index for from account number
+            spaceCount = 0
+            count = 0
+            for char in string:
+                count += 1
+                if(char == " "):
+                    spaceCount += 1
+                    if(spaceCount >= 3):
+                        break
+            substring = string[count:]
+            #check first character is no zero
+            firstChar = substring[0:0]
+            if(firstChar == "0"):
+                return False
+            count = 0
+            for char in substring:
+                if(char != " "):
+                    count+=1
+                else:
+                    break
+                if(count > 7):
+                    return False
+
+            #check monetary amount is between 3 8 decimmal digits
+            spaceCount = 0
+            count = 0
+            for char in string:
+                count += 1
+                if(char == " "):
+                    spaceCount += 1
+                    if(spaceCount >= 2):
+                        break
+            substring = string[count:]
+            count = 0
+            for char in substring:
+                if(char != " "):
+                    count+=1
+                else:
+                    break
+
+            if(count < 3 or count > 8):
+                return False
+
+            #test that the new account name is between 3 - 30 characters
+            txnCode = string[:3]
+            if(txnCode == "NEW"):
+                wordList = string.split()
+                if(len(wordList[-1]) < 3 or len(wordList[-1]) > 30):
+                    return False
+
+            #test that only alphanumeric and space characters'
+            #if(re.match('^[\w\s\w\s\w\s\w\s[\w\*]*]+',string) is not None):
+            #    return False
+
+            #test that there is no beginning or ending trailing space
+            if string.startswith(" ") or string.endswith(" "):
+                return False
+
+        return True

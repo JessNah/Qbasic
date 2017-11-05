@@ -4,7 +4,7 @@ class ErrorHandler:
     """
 
     #dictionary of error codes
-    error_codes = {}               
+    error_codes = {}
 
     def __init__(self):
         """Initialize error code to error string mapping."""
@@ -19,6 +19,7 @@ class ErrorHandler:
         self.error_codes["ERR_WITHDRAWLIMIT"] = "Error Withdraw Limit reached for \"From\" account."
         self.error_codes["ERR_SAMEACCOUNT"] = "Error \"From\" and \"To\" account are the same."
         self.error_codes["ERR_INVALIDACCFILE"] = "Error Invalid account number in valid accounts file!"
+        self.error_codes["ERR_TXNFILE"] = "Error Creating Transaction Summary File. Invalid Data."
 
     def process_error(self, errorCode):
         """Function to send error string to stdout."""

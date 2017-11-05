@@ -31,3 +31,4 @@ User Entered:00001
 Please enter the next transaction code to proceed (example: deposit): 
 User Entered:LOGOUT
 Successfully Logged out of the system.
+Error Creating Transaction Summary File. Invalid Data.
