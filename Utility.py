@@ -71,7 +71,10 @@ class Utility:
 
     def is_account_valid(self, accNum):
         """Function to check if passed in account number is valid."""
-        if(accNum in TxnProcess.valid_acc_list):
+        if(str(accNum)[0] == "0"):
+            #Account number can not start with zero.
+            return False
+        elif(accNum in TxnProcess.valid_acc_list):
             return True
         else:
             return False
@@ -118,7 +121,13 @@ class Utility:
     def get_input(self, prompt):
         """
         """
-        inputValue = input(prompt).upper()
+        
+        # Python 2.x requires use of raw_input() if reading from std input file.
+        # While Python 3.x has merged raw_input() functionality into the standard input() function.
+        if sys.version_info[0] < 3:
+            inputValue = raw_input(prompt).upper()
+        else:
+            inputValue = input(prompt).upper()
 
         if (inputValue == "Q" or inputValue == "QUIT"):
             sys.exit()

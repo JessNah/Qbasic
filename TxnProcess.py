@@ -94,6 +94,12 @@ class TxnProcess:
             #Handle the exception if user did not enter an integer
             err.process_error("ERR_INVALIDACCOUNT")
             return False
+            
+        #Account number must be seven digits long.
+        #This will also catch errors with leading zeroes as the cast to integer will remove these and create a number < 7 digits.
+        if(len(str(accNum)) != 7):
+            err.process_error("ERR_INVALIDACCOUNT")
+            return False
 
         #Check if account number provided is valid.
         if(not utl.is_account_valid(accNum)):
@@ -136,7 +142,13 @@ class TxnProcess:
             #Handle the exception if user did not enter an integer
             err.process_error("ERR_INVALIDACCOUNT")
             return False
-
+        
+        #Account number must be seven digits long.
+        #This will also catch errors with leading zeroes as the cast to integer will remove these and create a number < 7 digits.
+        if(len(str(accNum)) != 7):
+            err.process_error("ERR_INVALIDACCOUNT")
+            return False
+        
         #Check if account number provided is unique.
         if(not utl.is_account_unique(accNum)):
             err.process_error("ERR_INVALIDACCOUNT")
@@ -176,6 +188,12 @@ class TxnProcess:
             #Handle the exception if user did not enter an integer
             err.process_error("ERR_INVALIDACCOUNT")
             return False
+            
+        #Account number must be seven digits long.
+        #This will also catch errors with leading zeroes as the cast to integer will remove these and create a number < 7 digits.
+        if(len(str(accNum)) != 7):
+            err.process_error("ERR_INVALIDACCOUNT")
+            return False
 
         #Check if account number provided is valid.
         if(not utl.is_account_valid(accNum)):
@@ -207,6 +225,12 @@ class TxnProcess:
             accNum = int(utl.get_input("Please enter the account number you wish to withdraw from: "))
         except ValueError:
             #Handle the exception if user did not enter an integer
+            err.process_error("ERR_INVALIDACCOUNT")
+            return False
+
+        #Account number must be seven digits long.
+        #This will also catch errors with leading zeroes as the cast to integer will remove these and create a number < 7 digits.
+        if(len(str(accNum)) != 7):
             err.process_error("ERR_INVALIDACCOUNT")
             return False
 
@@ -255,6 +279,12 @@ class TxnProcess:
             err.process_error("ERR_INVALIDACCOUNT")
             return False
 
+        #Account number must be seven digits long.
+        #This will also catch errors with leading zeroes as the cast to integer will remove these and create a number < 7 digits.
+        if(len(str(fromAccNum)) != 7):
+            err.process_error("ERR_INVALIDACCOUNT")
+            return False
+
         #Check if FROM account number provided is valid.
         if(not utl.is_account_valid(fromAccNum)):
             err.process_error("ERR_INVALIDACCOUNT")
@@ -264,6 +294,12 @@ class TxnProcess:
             toAccNum = int(utl.get_input("Please enter the \"To\" account number: "))
         except ValueError:
             #Handle the exception if user did not enter an integer
+            err.process_error("ERR_INVALIDACCOUNT")
+            return False
+
+        #Account number must be seven digits long.
+        #This will also catch errors with leading zeroes as the cast to integer will remove these and create a number < 7 digits.
+        if(len(str(toAccNum)) != 7):
             err.process_error("ERR_INVALIDACCOUNT")
             return False
 

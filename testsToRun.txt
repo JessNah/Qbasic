@@ -1,7 +1,7 @@
 
 LOGIN,test_single_login,transaction_file_empty
 LOGIN,test_txn_login,transaction_file_empty
-LOGIN,test_teller_all_txn_login_agent,transaction_file_empty
+LOGIN,test_teller_all_txn_login_agent,transaction_file_test_teller_all_txn_login_agent
 LOGIN,test_login_read_acc_file,transaction_file_empty
 LOGIN,test_mode_agent,transaction_file_empty
 LOGIN,test_mode_machine,transaction_file_empty

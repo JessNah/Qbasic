@@ -8,7 +8,9 @@ Please enter the next transaction code to proceed (example: deposit):
 User Entered:CREATEACCT
 Please enter the new account number: 
 User Entered:0000329
-Invalid account number.
-Please enter the next transaction code to proceed (example: deposit): 
+Error Invalid account number
+Sorry we encountered an issue. Please try another transaction code: 
+User Entered:ACCOUNTTHREE
+Sorry we encountered an issue. Please try another transaction code: 
 User Entered:LOGOUT
 Successfully Logged out of the system.

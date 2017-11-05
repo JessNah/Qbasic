@@ -10,14 +10,13 @@ Please enter the new account number:
 User Entered:1000329
 Please enter the name of account owner: 
 User Entered:ACCOUNTTHREE
-JC TODO: ISSUE WITH THIS TEST
-
 Please enter the next transaction code to proceed (example: deposit): 
-User Entered:TRANSFER 
-Sorry we encountered an issue. Please try another transaction code: 
+User Entered:TRANSFER
+Please enter the "From" account number: 
 User Entered:1000223 
-Sorry we encountered an issue. Please try another transaction code: 
+Please enter the "To" account number: 
 User Entered:1000329 
+Error Invalid account number
 Sorry we encountered an issue. Please try another transaction code: 
 User Entered:100000
 Sorry we encountered an issue. Please try another transaction code: 

@@ -3,7 +3,7 @@ agent
 createacct
 1000329
 accountThree
-transfer 
+transfer
 1000223 
 1000329 
 100000

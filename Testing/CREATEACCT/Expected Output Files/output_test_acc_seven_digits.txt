@@ -9,8 +9,8 @@ User Entered:CREATEACCT
 Please enter the new account number: 
 User Entered:10003290
 Error Invalid account number
-Sorry an error occurred, please try again:
+Sorry we encountered an issue. Please try another transaction code: 
 User Entered:ACCOUNTTHREE
-Please enter the next transaction code to proceed (example: deposit): 
+Sorry we encountered an issue. Please try another transaction code: 
 User Entered:LOGOUT
 Successfully Logged out of the system.

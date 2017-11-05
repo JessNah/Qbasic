@@ -52,15 +52,25 @@ while read p; do
 	fi  
   else
 	# Otherwise if a transaction file IS expected, test if transaction file matches the expected one.
-  	echo "diff \"${ActualTransactionFile}\" \"${ExpectedTransactionFile}\"";
-  	OUTPUT1="$(diff ${ActualTransactionFile} ${ExpectedTransactionFile})"''
-  	echo "${OUTPUT1}";
+	
+	if [ ! -f ${ActualTransactionFile} ]; then
+	    OUTPUT1="${ActualTransactionFile} file not found!"
+		echo "${OUTPUT1}";
+	else
+  		echo "diff \"${ActualTransactionFile}\" \"${ExpectedTransactionFile}\"";
+  		OUTPUT1="$(diff ${ActualTransactionFile} ${ExpectedTransactionFile})"''
+  		echo "${OUTPUT1}";
+	fi
   fi
   
   # Test if the stdout file matches the expected one.
-  echo "diff \"${ActualOutputFile}\" \"${ExpectedOutputFile}\"";
-  OUTPUT2="$(diff ${ActualOutputFile} ${ExpectedOutputFile})"''
-  echo "${OUTPUT2}";
+  if [ ! -f ${ActualOutputFile} ]; then
+      OUTPUT1="\"${ActualOutputFile}\" file not found!"
+  else
+  	  echo "diff \"${ActualOutputFile}\" \"${ExpectedOutputFile}\"";
+  	  OUTPUT2="$(diff ${ActualOutputFile} ${ExpectedOutputFile})"''
+  	  echo "${OUTPUT2}";
+  fi
   
   # PRINT PASS OR FAIL for the test cases (using green or red text appropriately)
   if [ -z "${OUTPUT1}" ] && [ -z "${OUTPUT2}" ]; then
