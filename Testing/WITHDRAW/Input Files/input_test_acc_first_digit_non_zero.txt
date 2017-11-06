@@ -1,0 +1,6 @@
+login
+machine
+withdraw
+0000329
+100
+logout

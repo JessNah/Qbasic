@@ -66,6 +66,7 @@ while read p; do
   # Test if the stdout file matches the expected one.
   if [ ! -f ${ActualOutputFile} ]; then
       OUTPUT1="\"${ActualOutputFile}\" file not found!"
+	  echo "${OUTPUT1}";
   else
   	  echo "diff \"${ActualOutputFile}\" \"${ExpectedOutputFile}\"";
   	  OUTPUT2="$(diff ${ActualOutputFile} ${ExpectedOutputFile})"''

@@ -6,3 +6,5 @@ Error already logged out of the system.
 Sorry we encountered an issue. Please try another transaction code: 
 User Entered:1000223
 Sorry we encountered an issue. Please try another transaction code: 
+User Entered:ACCOUNTONE
+Sorry we encountered an issue. Please try another transaction code: 

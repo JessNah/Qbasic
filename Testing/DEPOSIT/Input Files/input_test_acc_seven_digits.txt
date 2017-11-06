@@ -1,0 +1,6 @@
+login
+machine
+deposit
+10003291
+100
+logout

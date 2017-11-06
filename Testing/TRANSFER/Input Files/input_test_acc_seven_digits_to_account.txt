@@ -1,0 +1,7 @@
+login
+machine
+transfer
+1000223
+10003272
+100
+logout
