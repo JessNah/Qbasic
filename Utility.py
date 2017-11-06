@@ -19,7 +19,8 @@ class Utility:
                 #remove leading and trailing spaces.
                 line = line.strip()
                 try:
-                    if(not self.is_string_amount_valid(line) and line != "0000000"):
+                    #check amount does not start with 0 unless EOF line  AND that it is max 7 characters
+                    if((not self.is_string_amount_valid(line) and line != "0000000") or (len(line) != 7)):
                         err.process_error("ERR_INVALIDACCFILE")
                         sys.exit()
                     line = int(line)

@@ -41,6 +41,7 @@ VALID ACCOUNT LIST FILE,test_acc_first_digit_non_zero,transaction_file_empty
 VALID ACCOUNT LIST FILE,test_acc_line_char_count,transaction_file_empty
 VALID ACCOUNT LIST FILE,test_acc_list_ends_invalid_acc,transaction_file_empty
 VALID ACCOUNT LIST FILE,test_acc_seven_digits,transaction_file_empty
+VALID ACCOUNT LIST FILE,test_acc_non_digits,transaction_file_empty
 
 TRANSFER,test_before_login,transaction_file_empty
 TRANSFER,test_txn_logout,transaction_file_empty
