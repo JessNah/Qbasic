@@ -116,7 +116,11 @@ class TxnProcess:
             return False
 
         try:
-            amount = int(utl.get_input("Please enter the amount you wish to deposit: "))
+            stringAmount = utl.get_input("Please enter the amount you wish to deposit: ")
+            if(not utl.is_string_amount_valid(stringAmount)):
+                err.process_error("ERR_INVALIDAMOUNT")
+                return False
+            amount = int(stringAmount)
         except ValueError:
             #Handle the exception if user did not enter an integer
             err.process_error("ERR_INVALIDAMOUNT")
@@ -249,7 +253,11 @@ class TxnProcess:
             return False
 
         try:
-            amount = int(utl.get_input("Please enter the amount you wish to withdraw: "))
+            stringAmount = utl.get_input("Please enter the amount you wish to withdraw: ")
+            if(not utl.is_string_amount_valid(stringAmount)):
+                err.process_error("ERR_INVALIDAMOUNT")
+                return False
+            amount = int(stringAmount)
         except ValueError:
             #Handle the exception if user did not enter an integer
             err.process_error("ERR_INVALIDAMOUNT")
@@ -323,7 +331,11 @@ class TxnProcess:
             return False
 
         try:
-            amount = int(utl.get_input("Please enter the amount you wish to transfer: "))
+            stringAmount = utl.get_input("Please enter the amount you wish to transfer: ")
+            if(not utl.is_string_amount_valid(stringAmount)):
+                err.process_error("ERR_INVALIDAMOUNT")
+                return False
+            amount = int(stringAmount)
         except ValueError:
             #Handle the exception if user did not enter an integer
             err.process_error("ERR_INVALIDAMOUNT")

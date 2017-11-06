@@ -19,6 +19,9 @@ class Utility:
                 #remove leading and trailing spaces.
                 line = line.strip()
                 try:
+                    if(not self.is_string_amount_valid(line) and line != "0000000"):
+                        err.process_error("ERR_INVALIDACCFILE")
+                        sys.exit()
                     line = int(line)
                 except ValueError:
                     err.process_error("ERR_INVALIDACCFILE")
@@ -86,6 +89,11 @@ class Utility:
             return False
         else:
             return True
+
+    def is_string_amount_valid(self, amount):
+        if(amount.startswith("0")):
+            return False
+        return True
 
     def is_amount_valid(self, amount):
         """Function to check if passed in amount is within limits for machine and agent users.
