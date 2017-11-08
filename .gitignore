@@ -4,4 +4,16 @@ __pycache__/main.cpython-36.pyc
 __pycache__/errorHandler.cpython-36.pyc
 Testing/TRANSFER/Input Files/input_test_valid_amount.txt
 Testing/TRANSFER/Expected Output Files/transaction_file_test_valid_amount.txt
-Docs/Assignment3_Failure_Report.docx
+
+# Don't include pycache files
+*pycache*/
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
