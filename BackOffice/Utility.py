@@ -3,6 +3,7 @@ import ErrorHandler
 import sys
 import re
 import Account
+import collections
 
 err = ErrorHandler.ErrorHandler()
 
@@ -28,9 +29,12 @@ class Utility:
         """Function to write all cached dictionary items to master account file and valid account file."""
         masterF = open(masterAccountFile, 'w')
         validF = open(validAccountFile, 'w')
-        for item in dic:
+
+        for item in sorted(dic.keys()):
             #TODO make sure the account balance is formated to 3 decimal places
             masterF.writelines(str(dic[item].getAccountNum()) + " " + str(dic[item].getAccountBalance()) + " " + dic[item].getAccountName() + "\n")
             validF.writelines(str(dic[item].getAccountNum()) + "\n")
         masterF.close()
+        #add invalid account number to end of valid accounts file
+        validF.writelines("0000000")
         validF.close()

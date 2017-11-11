@@ -30,10 +30,16 @@ class TxnProcess:
         """Function to process a new transaction code.
         Creates a new account
         """
+
+        #make sure new account number is unused/unique
+        if(int(items[1]) in accounts_dic):
+            err.process_error("ERR_BADACCOUNTNUM")
+            return False
+
         #create the new account object
         accountObj = Account.Account(int(items[1]), 000, items[4])
         #add new account to dictionary list of items
-        accounts_dic[accountObj.getAccountNum] = accountObj
+        accounts_dic[accountObj.getAccountNum()] = accountObj
 
         #new account creation successfully completed, return true
         return True
@@ -42,8 +48,18 @@ class TxnProcess:
         """Function to process a del transaction code.
         Deletes an account
         """
-        #delete the account object
         key = int(items[1])
+
+        #Make sure the name provided matches the account to be deleted's name
+        if(accounts_dic[key].getAccountName() != items[4]):
+            err.process_error("ERR_BADACCOUNTNAME")
+            return False
+        #check that the account has 0 balance, only then delete
+        if(accounts_dic[key].getAccountBalance() is not 0):
+            err.process_error("ERR_BADBALANCE")
+            return False
+
+        #delete the account object
         accounts_dic.pop(key)
 
         #delete successfully completed, return true

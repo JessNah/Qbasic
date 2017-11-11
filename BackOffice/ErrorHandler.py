@@ -10,6 +10,9 @@ class ErrorHandler:
         """Initialize error code to error string mapping."""
         self.error_codes["ERR_GENERIC"] = "Generic Error encountered."
         self.error_codes["ERR_MASTERACCOUNT"] = "Error processing master accounts file."
+        self.error_codes["ERR_BADACCOUNTNUM"] = "Error the account number already exists."
+        self.error_codes["ERR_BADACCOUNTNAME"] = "Error the account name does not match the associated account name."
+        self.error_codes["ERR_BADBALANCE"] = "Error the balance of the account to be deleted is not zero."
 
     def process_error(self, errorCode):
         """Function to send error string to stdout."""
