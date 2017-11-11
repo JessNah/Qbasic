@@ -15,3 +15,6 @@ class Account:
 
     def getAccountBalance(self):
         return self.balance
+
+    def setAccountBalance(self, val):
+        self.balance = val

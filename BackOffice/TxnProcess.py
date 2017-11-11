@@ -4,7 +4,7 @@ import Account
 import sys
 import re
 
-"""All the global variables for the Qbasic Front end
+"""All the global variables for the Qbasic Back end
 """
 
 accounts_dic = {}
@@ -18,9 +18,9 @@ utl = Utility.Utility()
 err = ErrorHandler.ErrorHandler()
 
 class TxnProcess:
-    """Class used for handling all transaction codes.
+    """Class used for handling all transaction processing.
 
-    All TxnProcess functions return booleans indiating transaction success or failure.
+    All TxnProcess functions return booleans indicating transaction success or failure.
     Any errors encountered should be handled using processError() from the errorHandler class.
     Each transaction manipulates the accounts dictionary used to later create the new master
     account and valid account files.
@@ -37,6 +37,7 @@ class TxnProcess:
 
         #new account creation successfully completed, return true
         return True
+
     def txn_del(self, items):
         """Function to process a del transaction code.
         Deletes an account
@@ -46,4 +47,16 @@ class TxnProcess:
         accounts_dic.pop(key)
 
         #delete successfully completed, return true
+        return True
+
+    def txn_dep(self, items):
+        """Function to process a dep transaction code.
+        Deposits money into an account
+        """
+        #get the account and update its balanace
+        key = int(items[1])
+        balance = accounts_dic[key].getAccountBalance() + int(items[2])
+        (accounts_dic[key]).setAccountBalance(balance)
+
+        #deposit successfully completed, return true
         return True

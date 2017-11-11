@@ -8,7 +8,7 @@ class ErrorHandler:
 
     def __init__(self):
         """Initialize error code to error string mapping."""
-        self.error_codes["ERR_GENERIC"] = "Generic Error encountered. Please try later."
+        self.error_codes["ERR_GENERIC"] = "Generic Error encountered."
         self.error_codes["ERR_MASTERACCOUNT"] = "Error processing master accounts file."
 
     def process_error(self, errorCode):

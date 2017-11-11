@@ -52,6 +52,8 @@ if __name__ == '__main__':
                 txn.txn_new(items)
             elif (items[0] == "DEL"):
                 txn.txn_del(items)
+            elif (items[0] == "DEP"):
+                txn.txn_dep(items)
 
     #Create new master and valid account file
     utl.create_master_valid_account_files(TxnProcess.accounts_dic, txn.output_master_account_file, txn.output_valid_account_file)
