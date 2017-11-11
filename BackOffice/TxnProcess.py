@@ -1,10 +1,18 @@
 import Utility
 import ErrorHandler
+import Account
+import sys
+import re
 
 """All the global variables for the Qbasic Front end
 """
 
 accounts_dic = {}
+
+master_account_file = ""
+transaction_summary_file = ""
+output_master_account_file = ""
+output_valid_account_file = ""
 
 utl = Utility.Utility()
 err = ErrorHandler.ErrorHandler()
@@ -17,36 +25,14 @@ class TxnProcess:
     Each transaction uses createTxnMsg() to cache messages to be written to transaction file.
     """
 
-    def txn_new(self):
+    def txn_new(self, items):
         """Function to process a user login transaction code.
         Sets user type (machine,agent) and reads the valid accounts file.
         """
-        global login_status
-        global login_user_agent
-
-        if(login_status == False):
-            login_status = True
-        else:
-            #if already logged in, do not proceed. return false
-            err.process_error("ERR_LOGGEDIN")
-            return False
-
-        #prompt user for the session type
-        sessType = utl.get_input("Please enter the desired session type (Machine/Agent): ")
-        if(sessType != "MACHINE" and sessType != "AGENT"):
-            err.process_error("INVALID_SESSION")
-            return False
-
-        if(sessType == "MACHINE"):
-            login_user_agent = False
-        else:
-            login_user_agent = True
-
-        #read the valid accounts list file
-        utl.process_account_file(self.valid_accounts_file)
-
-        #Intiliaze withdraw totals
-        utl.intiliaze_withdraw_totals()
+        #create the new account object
+        accountObj = Account.Account(int(items[1]), 000, items[4])
+        #add new account to dictionary list of items
+        accounts_dic[accountObj.getAccountNum] = accountObj
 
         #login successfully completed, return true
         return True
