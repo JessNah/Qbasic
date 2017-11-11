@@ -18,7 +18,7 @@ class Utility:
                 try:
                     items = line.split(" ")
                     accountObj = Account.Account(int(items[0]), int(items[1]), items[2])
-                    TxnProcess.accounts_dic[accountObj.getAccountNum] = accountObj
+                    TxnProcess.accounts_dic[accountObj.getAccountNum()] = accountObj
                 except ValueError:
                     err.process_error("ERR_MASTERACCOUNT")
                     sys.exit()

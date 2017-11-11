@@ -30,7 +30,7 @@ if __name__ == '__main__':
     #Verify the correct number of input parameters are provided.
     if (len(sys.argv) != 5):
         print("Please provide a valid master accounts file AND transaction summary file.")
-        print("Usage Example: \"./BackOffice.py masteraccount.txt transactionsummary.txt\"")
+        print("Usage Example: \"./BackOffice.py masteraccount.txt transactionsummary.txt newmasteraccount.txt newvalidaccount.txt\"")
         sys.exit()
     else:
         txn.master_account_file = sys.argv[1]
@@ -38,8 +38,7 @@ if __name__ == '__main__':
         txn.output_master_account_file = sys.argv[3]
         txn.output_valid_account_file = sys.argv[4]
 
-
-    #READ MASTER ACCOUNTS file AND MAKE THE ACCOUNTS OBJECTS TO A LIST
+    #Read master accounts file and create a dictionary of account objects
     utl.process_masterAccount(txn.master_account_file)
 
     #Check for a transaction code provided by the user.
@@ -51,6 +50,8 @@ if __name__ == '__main__':
 
             if (items[0] == "NEW"):
                 txn.txn_new(items)
+            elif (items[0] == "DEL"):
+                txn.txn_del(items)
 
     #Create new master and valid account file
     utl.create_master_valid_account_files(TxnProcess.accounts_dic, txn.output_master_account_file, txn.output_valid_account_file)
