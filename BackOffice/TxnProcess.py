@@ -30,49 +30,175 @@ class TxnProcess:
         """Function to process a new transaction code.
         Creates a new account
         """
-
-        #make sure new account number is unused/unique
-        if(int(items[1]) in accounts_dic):
+        try:
+            accountNum = int(items[1])
+        except ValueError:
+            #Handle the exception if user did not enter an integer
+            err.process_error("ERR_INVALIDACCOUNTNUM")
+            #Since the back end should only get valid input, exit the back end on any value error.
+            sys.exit()
+        
+        #Make sure new account number is unused/unique
+        if(accountNum in accounts_dic):
             err.process_error("ERR_BADACCOUNTNUM")
-            return False
+            return
 
-        #create the new account object
-        accountObj = Account.Account(int(items[1]), 000, items[4])
-        #add new account to dictionary list of items
+        #Create the new account object
+        accountObj = Account.Account(accountNum, 000, items[4])
+        #Add new account to dictionary list of items
         accounts_dic[accountObj.getAccountNum()] = accountObj
 
-        #new account creation successfully completed, return true
-        return True
+        #new account creation successfully completed.
+        return
 
     def txn_del(self, items):
         """Function to process a del transaction code.
         Deletes an account
         """
-        key = int(items[1])
+        
+        try:
+            accountNum = int(items[1])
+        except ValueError:
+            #Handle the exception if user did not enter an integer
+            err.process_error("ERR_INVALIDACCOUNTNUM")
+            #Since the back end should only get valid input, exit the back end on any value error.
+            sys.exit()
 
         #Make sure the name provided matches the account to be deleted's name
-        if(accounts_dic[key].getAccountName() != items[4]):
+        if(accounts_dic[accountNum].getAccountName() != items[4]):
             err.process_error("ERR_BADACCOUNTNAME")
-            return False
-        #check that the account has 0 balance, only then delete
-        if(accounts_dic[key].getAccountBalance() is not 0):
-            err.process_error("ERR_BADBALANCE")
-            return False
+            return
+        #Check that the account has 0 balance, only then delete
+        if(accounts_dic[accountNum].getAccountBalance() is not 0):
+            err.process_error("ERR_BADBALANCEDEL")
+            return
 
-        #delete the account object
-        accounts_dic.pop(key)
+        #Delete the account object
+        accounts_dic.pop(accountNum)
 
-        #delete successfully completed, return true
-        return True
+        #Delete transaction successfully completed
+        return
 
     def txn_dep(self, items):
         """Function to process a dep transaction code.
         Deposits money into an account
         """
-        #get the account and update its balanace
-        key = int(items[1])
-        balance = accounts_dic[key].getAccountBalance() + int(items[2])
-        (accounts_dic[key]).setAccountBalance(balance)
+        try:
+            #Get the account and update its balance
+            accountNum = int(items[1])
+        except ValueError:
+            #Handle the exception if user did not enter an integer.
+            err.process_error("ERR_INVALIDACCOUNTNUM")
+            #Since the back end should only get valid input, exit the back end on any value error.
+            sys.exit()
+            
+        try:
+            #Get the deposit amount
+            depAmount = int(items[2])
+        except ValueError:
+            #Handle the exception if user did not enter an integer.
+            err.process_error("ERR_INVALIDAMOUNT")
+            #Since the back end should only get valid input, exit the back end on any value error.
+            sys.exit()    
+        
+        #Check that the account balance of the account will not exceed $999999.99 after deposit
+        if((accounts_dic[accountNum].getAccountBalance() + depAmount) > 99999999):
+            err.process_error("ERR_BADBALANCEDEP")
+            return
+        
+        balance = accounts_dic[accountNum].getAccountBalance() + depAmount
+        (accounts_dic[accountNum]).setAccountBalance(balance)
 
-        #deposit successfully completed, return true
-        return True
+        #Deposit transaction successfully completed
+        return
+        
+    def txn_wdr(self, items):
+        """Function to process a wdr transaction code.
+        Withdraw money from an account
+        """
+        try:
+            accountNum = int(items[1])
+        except ValueError:
+            #Handle the exception if user did not enter an integer.
+            err.process_error("ERR_INVALIDACCOUNTNUM")
+            #Since the back end should only get valid input, exit the back end on any value error.
+            sys.exit()
+         
+        try: 
+            withdrawAmount = int(items[2])
+        except ValueError:
+            #Handle the exception if user did not enter an integer.
+            err.process_error("ERR_INVALIDAMOUNT")
+            #Since the back end should only get valid input, exit the back end on any value error.
+            sys.exit()
+            
+        #Check that the account balance will not go below 0 after withdraw
+        if((accounts_dic[accountNum].getAccountBalance() - withdrawAmount) < 0):
+            err.process_error("ERR_BADBALANCEWDR")
+            return
+        
+        #Get the account and update its balanace
+        balance = accounts_dic[accountNum].getAccountBalance() - withdrawAmount
+        (accounts_dic[accountNum]).setAccountBalance(balance)
+
+        #Withdraw transaction successfully completed
+        return
+    
+    def txn_xfr(self, items):
+        """Function to process a xfr transaction code.
+        Transfer money from FROM account to TO account.
+        """
+        try:
+            #Get the TO account
+            toAccountNum = int(items[1])
+        
+            #Get the FROM account
+            fromAccountNum = int(items[3])
+        except ValueError:
+            #Handle the exception if user did not enter an integer.
+            err.process_error("ERR_INVALIDACCOUNTNUM")
+            #Since the back end should only get valid input, exit the back end on any value error.
+            sys.exit()
+        
+        try:
+            transferAmount = int(items[2])
+        except ValueError:
+            #Handle the exception if user did not enter an integer.
+            err.process_error("ERR_INVALIDAMOUNT")
+            #Since the back end should only get valid input, exit the back end on any value error.
+            sys.exit()
+        
+        #Check that the account balance of FROM account will not go below 0 after transfer
+        if((accounts_dic[fromAccountNum].getAccountBalance() - transferAmount) < 0):
+            err.process_error("ERR_BADBALANCEFRMACCXFR")
+            return   
+              
+        #Check that the account balance of TO account will not exceed $999999.99 after transfer
+        if((accounts_dic[toAccountNum].getAccountBalance() + transferAmount) > 99999999):
+            err.process_error("ERR_BADBALANCETOACCXFR")
+            return   
+        
+        #Subtract transfer amount from FROM account's balance.
+        balance = accounts_dic[fromAccountNum].getAccountBalance() - transferAmount
+        (accounts_dic[fromAccountNum]).setAccountBalance(balance)
+        
+        #Add transfer amount to TO account's balance.
+        balance = accounts_dic[toAccountNum].getAccountBalance() + transferAmount
+        (accounts_dic[toAccountNum]).setAccountBalance(balance)
+
+        #Transfer transaction successfully completed
+        return
+        
+    def txn_eos(self, items):
+        """Function to process the EOS line from transaction file to ensure validity.
+        """
+        
+        #If NOT all items in EOS line match those expected then set validity flag.
+        if (not((items[1] == "0000000") and (items[2] == "000") and (items[3] == "0000000") and (items[4] == "***"))):
+            err.process_error("ERR_INVALIDTXNSUM")
+            return
+        else:
+            print("End of merged transaction summary file successfully reached.")
+
+        #EOS validity successfully verified
+        return

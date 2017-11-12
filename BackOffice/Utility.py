@@ -13,11 +13,17 @@ class Utility:
     """
 
     def process_masterAccount(self, fileName):
+        """Function to create a dictionary of account objects from the master accounts file.
+        This allows for a cached version of the master accounts file for any future transactions.
+        """
         with open(fileName) as file:
             for line in file:
-                #remove leading and trailing spaces.
+                #Remove leading and trailing spaces.
                 line = line.strip()
+                
                 try:
+                    #Split line into list, use items in master account line to create Account object.
+                    #Store Account objects in dictionary using account number for easy access.
                     items = line.split(" ")
                     accountObj = Account.Account(int(items[0]), int(items[1]), items[2])
                     TxnProcess.accounts_dic[accountObj.getAccountNum()] = accountObj
@@ -26,15 +32,17 @@ class Utility:
                     sys.exit()
 
     def create_master_valid_account_files(self, dic, masterAccountFile, validAccountFile):
-        """Function to write all cached dictionary items to master account file and valid account file."""
+        """Function to write all cached dictionary items (account objects) to master account file and valid account file."""
         masterF = open(masterAccountFile, 'w')
         validF = open(validAccountFile, 'w')
 
         for item in sorted(dic.keys()):
-            #TODO make sure the account balance is formated to 3 decimal places
-            masterF.writelines(str(dic[item].getAccountNum()) + " " + str(dic[item].getAccountBalance()) + " " + dic[item].getAccountName() + "\n")
+            #Write lines for master accounts file and valid accounts file.
+            #Ensure account balances are between 3 and 8 digits (pad with leading zeros if necessary)
+            masterF.writelines(str(dic[item].getAccountNum()) + " " + str(dic[item].getAccountBalance()).zfill(3)  + " " + dic[item].getAccountName() + "\n")
             validF.writelines(str(dic[item].getAccountNum()) + "\n")
         masterF.close()
-        #add invalid account number to end of valid accounts file
+        
+        #Add invalid account number to end of valid accounts file
         validF.writelines("0000000")
         validF.close()
