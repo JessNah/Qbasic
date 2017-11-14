@@ -12,7 +12,7 @@ class Utility:
     Utility functions are by TxnProcess for routine operations.
     """
 
-    def process_masterAccount(self, fileName):
+    def process_master_account(self, fileName):
         """Function to create a dictionary of account objects from the master accounts file.
         This allows for a cached version of the master accounts file for any future transactions.
         """
@@ -26,7 +26,7 @@ class Utility:
                     #Store Account objects in dictionary using account number for easy access.
                     items = line.split(" ")
                     accountObj = Account.Account(int(items[0]), int(items[1]), items[2])
-                    TxnProcess.accounts_dic[accountObj.getAccountNum()] = accountObj
+                    TxnProcess.accounts_dic[accountObj.get_account_num()] = accountObj
                 except ValueError:
                     err.process_error("ERR_MASTERACCOUNT")
                     sys.exit()
@@ -39,8 +39,8 @@ class Utility:
         for item in sorted(dic.keys()):
             #Write lines for master accounts file and valid accounts file.
             #Ensure account balances are between 3 and 8 digits (pad with leading zeros if necessary)
-            masterF.writelines(str(dic[item].getAccountNum()) + " " + str(dic[item].getAccountBalance()).zfill(3)  + " " + dic[item].getAccountName() + "\n")
-            validF.writelines(str(dic[item].getAccountNum()) + "\n")
+            masterF.writelines(str(dic[item].get_account_num()) + " " + str(dic[item].get_account_balance()).zfill(3)  + " " + dic[item].get_account_name() + "\n")
+            validF.writelines(str(dic[item].get_account_num()) + "\n")
         masterF.close()
         
         #Add invalid account number to end of valid accounts file

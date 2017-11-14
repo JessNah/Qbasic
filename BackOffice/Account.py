@@ -14,18 +14,18 @@ class Account:
         self.accountNum = num
         self.balance = balance
 
-    def getAccountNum(self):
+    def get_account_num(self):
         """Accessor to return an account's account number."""
         return self.accountNum
 
-    def getAccountName(self):
+    def get_account_name(self):
         """Accessor to return an account's account name."""
         return self.accountName
 
-    def getAccountBalance(self):
+    def get_account_balance(self):
         """Accessor to return an account's account balance."""
         return self.balance
 
-    def setAccountBalance(self, val):
+    def set_account_balance(self, val):
         """Mutator function to set a new account balance for an Account object."""
         self.balance = val

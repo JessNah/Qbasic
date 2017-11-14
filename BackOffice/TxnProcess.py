@@ -46,7 +46,7 @@ class TxnProcess:
         #Create the new account object
         accountObj = Account.Account(accountNum, 000, items[4])
         #Add new account to dictionary list of items
-        accounts_dic[accountObj.getAccountNum()] = accountObj
+        accounts_dic[accountObj.get_account_num()] = accountObj
 
         #new account creation successfully completed.
         return
@@ -65,11 +65,11 @@ class TxnProcess:
             sys.exit()
 
         #Make sure the name provided matches the account to be deleted's name
-        if(accounts_dic[accountNum].getAccountName() != items[4]):
+        if(accounts_dic[accountNum].get_account_name() != items[4]):
             err.process_error("ERR_BADACCOUNTNAME")
             return
         #Check that the account has 0 balance, only then delete
-        if(accounts_dic[accountNum].getAccountBalance() is not 0):
+        if(accounts_dic[accountNum].get_account_balance() is not 0):
             err.process_error("ERR_BADBALANCEDEL")
             return
 
@@ -102,12 +102,12 @@ class TxnProcess:
             sys.exit()    
         
         #Check that the account balance of the account will not exceed $999999.99 after deposit
-        if((accounts_dic[accountNum].getAccountBalance() + depAmount) > 99999999):
+        if((accounts_dic[accountNum].get_account_balance() + depAmount) > 99999999):
             err.process_error("ERR_BADBALANCEDEP")
             return
         
-        balance = accounts_dic[accountNum].getAccountBalance() + depAmount
-        (accounts_dic[accountNum]).setAccountBalance(balance)
+        balance = accounts_dic[accountNum].get_account_balance() + depAmount
+        (accounts_dic[accountNum]).set_account_balance(balance)
 
         #Deposit transaction successfully completed
         return
@@ -133,13 +133,13 @@ class TxnProcess:
             sys.exit()
             
         #Check that the account balance will not go below 0 after withdraw
-        if((accounts_dic[accountNum].getAccountBalance() - withdrawAmount) < 0):
+        if((accounts_dic[accountNum].get_account_balance() - withdrawAmount) < 0):
             err.process_error("ERR_BADBALANCEWDR")
             return
         
         #Get the account and update its balanace
-        balance = accounts_dic[accountNum].getAccountBalance() - withdrawAmount
-        (accounts_dic[accountNum]).setAccountBalance(balance)
+        balance = accounts_dic[accountNum].get_account_balance() - withdrawAmount
+        (accounts_dic[accountNum]).set_account_balance(balance)
 
         #Withdraw transaction successfully completed
         return
@@ -169,22 +169,22 @@ class TxnProcess:
             sys.exit()
         
         #Check that the account balance of FROM account will not go below 0 after transfer
-        if((accounts_dic[fromAccountNum].getAccountBalance() - transferAmount) < 0):
+        if((accounts_dic[fromAccountNum].get_account_balance() - transferAmount) < 0):
             err.process_error("ERR_BADBALANCEFRMACCXFR")
             return   
               
         #Check that the account balance of TO account will not exceed $999999.99 after transfer
-        if((accounts_dic[toAccountNum].getAccountBalance() + transferAmount) > 99999999):
+        if((accounts_dic[toAccountNum].get_account_balance() + transferAmount) > 99999999):
             err.process_error("ERR_BADBALANCETOACCXFR")
             return   
         
         #Subtract transfer amount from FROM account's balance.
-        balance = accounts_dic[fromAccountNum].getAccountBalance() - transferAmount
-        (accounts_dic[fromAccountNum]).setAccountBalance(balance)
+        balance = accounts_dic[fromAccountNum].get_account_balance() - transferAmount
+        (accounts_dic[fromAccountNum]).set_account_balance(balance)
         
         #Add transfer amount to TO account's balance.
-        balance = accounts_dic[toAccountNum].getAccountBalance() + transferAmount
-        (accounts_dic[toAccountNum]).setAccountBalance(balance)
+        balance = accounts_dic[toAccountNum].get_account_balance() + transferAmount
+        (accounts_dic[toAccountNum]).set_account_balance(balance)
 
         #Transfer transaction successfully completed
         return

@@ -23,7 +23,7 @@ The program outputs the following files (through paths specified on command line
     - new valid accounts file, file used by the front end application (QBasic.py) as a reference for all current valid accounts.
 
 The program can be executed using the following usage example:
-Usage Example: \"./BackOffice.py masteraccount.txt transactionsummary.txt newmasteraccount.txt newvalidaccount.txt
+Usage Example: \"./BackOffice.py masteraccount.txt transactionsummary.txt newmasteraccount.txt newvalidaccount.txt\"
 """
 if __name__ == '__main__':
 
@@ -43,7 +43,7 @@ if __name__ == '__main__':
         txn.output_valid_account_file = sys.argv[4]
 
     #Read master accounts file and create a dictionary of account objects
-    utl.process_masterAccount(txn.master_account_file)
+    utl.process_master_account(txn.master_account_file)
 
     #Check for a transaction code provided by the user.
     with open(txn.transaction_summary_file) as file:
