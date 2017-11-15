@@ -68,6 +68,7 @@ class TxnProcess:
         if(accounts_dic[accountNum].get_account_name() != items[4]):
             err.process_error("ERR_BADACCOUNTNAME")
             return
+            
         #Check that the account has 0 balance, only then delete
         if(accounts_dic[accountNum].get_account_balance() is not 0):
             err.process_error("ERR_BADBALANCEDEL")
