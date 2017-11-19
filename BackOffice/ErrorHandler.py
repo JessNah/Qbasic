@@ -19,6 +19,7 @@ class ErrorHandler:
         self.error_codes["ERR_BADBALANCETOACCXFR"]  = "Error the balance of the TO account would be above $999999.99 after transfer transaction."
         self.error_codes["ERR_INVALIDTXNSUM"]       = "Error transaction summary file provided not in correct format."
         self.error_codes["ERR_INVALIDACCOUNTNUM"]   = "Error the account number is not in a valid format."
+        self.error_codes["ERR_ACCOUNTNOTFOUND"]   = "Error the account number entered does not exist in the system."
         self.error_codes["ERR_INVALIDAMOUNT"]       = "Error the monetary amount entered is not in a valid format."
 
     def process_error(self, errorCode):
