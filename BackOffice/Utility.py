@@ -46,3 +46,10 @@ class Utility:
         #Add invalid account number to end of valid accounts file
         validF.writelines("0000000")
         validF.close()
+        
+    def account_name_exists(self, accountName):
+        """Function to check if an account name already exists in the dictionary of accounts."""
+        for account in TxnProcess.accounts_dic:
+            if (accountName == TxnProcess.accounts_dic[account].get_account_name()):
+                return True
+        return False

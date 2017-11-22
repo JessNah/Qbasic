@@ -43,8 +43,13 @@ class TxnProcess:
             err.process_error("ERR_BADACCOUNTNUM")
             return
 
+        accountName = items[4]
+        if(utl.account_name_exists(accountName)):
+            err.process_error("ERR_USEDACCOUNTNAME")
+            return
+
         #Create the new account object
-        accountObj = Account.Account(accountNum, 000, items[4])
+        accountObj = Account.Account(accountNum, 000, accountName)
         #Add new account to dictionary list of items
         accounts_dic[accountObj.get_account_num()] = accountObj
 

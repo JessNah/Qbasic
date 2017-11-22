@@ -12,6 +12,7 @@ class ErrorHandler:
         self.error_codes["ERR_MASTERACCOUNT"]       = "Error processing master accounts file."
         self.error_codes["ERR_BADACCOUNTNUM"]       = "Error the account number already exists."
         self.error_codes["ERR_BADACCOUNTNAME"]      = "Error the account name does not match the associated account name."
+        self.error_codes["ERR_USEDACCOUNTNAME"]      = "Error the account name for the account being created is already in use."
         self.error_codes["ERR_BADBALANCEDEL"]       = "Error the balance of the account to be deleted is not zero."
         self.error_codes["ERR_BADBALANCEWDR"]       = "Error the balance of the account would be below zero after withdraw transaction."
         self.error_codes["ERR_BADBALANCEDEP"]       = "Error the balance of the account would be above $999999.99 after deposit transaction."
