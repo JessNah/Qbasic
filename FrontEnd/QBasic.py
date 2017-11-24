@@ -7,7 +7,7 @@ import sys
 This program serves to meet the requirements of a Front End banking system.
 Created as part of Software Quality Assurance course, CISC/CMPE 327 at Queen's University.
 
-A user is able to login as either machine or agent, able to perform transactions such as 
+A user is able to login as either machine or agent, able to perform transactions such as
 deposit, withdraw, createacct, deleteacct, and transfers.
 Valid accounts are verified by a valid accounts file provided by the back end software.
 The back end processes daily transactions by a transaction summary file created by the front end (this application).
@@ -15,7 +15,7 @@ The back end processes daily transactions by a transaction summary file created 
 The program takes the following inputs:
     - stdIn, used for receiving user commands.
     - valid accounts file, file to use as a record of the valid accounts (provided by back end).
-    - transaction summary file, file used after the "logout" command to write all valid 
+    - transaction summary file, file used after the "logout" command to write all valid
       transactions processed throughout the session. Where a session is defined as login -> logout.
 
 The program can be executed using the following usage example:
@@ -25,7 +25,7 @@ if __name__ == '__main__':
 
     txn = TxnProcess.TxnProcess()
     utl = Utility.Utility()
-    
+
     #Verify the correct number of input parameters are provided.
     if (len(sys.argv) != 3):
         print("Please provide a valid accounts file AND transaction summary file.")
@@ -34,7 +34,7 @@ if __name__ == '__main__':
     else:
         txn.valid_accounts_file = sys.argv[1]
         txn.transaction_summary_file = sys.argv[2]
-    
+
     print("Welcome. Please enter appropriate transaction codes to use the system.")
     print("Valid transaction codes are login, logout, deposit, deposit, withdraw, createacct, deleteacct, and transfer.")
     user_input = utl.get_input("Please begin by logging in: ")
@@ -42,7 +42,7 @@ if __name__ == '__main__':
     #Check for a transaction code provided by the user.
     while(user_input != None):
         status = True
-        
+
         if(user_input == "LOGIN"):
             if(txn.txn_login() == False):
                 status = False
@@ -52,7 +52,7 @@ if __name__ == '__main__':
                 status = False
             else:
                 #If logout is successfull, exit the program (only one logout per session)
-                sys.exit()    
+                sys.exit()
 
         elif(user_input == "DEPOSIT"):
             if(txn.txn_deposit() == False):
@@ -65,7 +65,7 @@ if __name__ == '__main__':
         elif(user_input == "DELETEACCT"):
             if(txn.txn_deleteacct() == False):
                 status = False
-                
+
         elif(user_input == "WITHDRAW"):
             if(txn.txn_withdraw() == False):
                 status = False
@@ -73,7 +73,7 @@ if __name__ == '__main__':
         elif(user_input == "TRANSFER"):
             if(txn.txn_transfer() == False):
                 status = False
-            
+
         else:
             status = False
 

@@ -30,9 +30,7 @@ class TxnProcess:
         global login_status
         global login_user_agent
 
-        if(login_status == False):
-            login_status = True
-        else:
+        if(login_status == True):
             #if already logged in, do not proceed. return false
             err.process_error("ERR_LOGGEDIN")
             return False
@@ -47,6 +45,9 @@ class TxnProcess:
             login_user_agent = False
         else:
             login_user_agent = True
+
+        #successfully logged in
+        login_status = True
 
         #read the valid accounts list file
         utl.process_account_file(self.valid_accounts_file)
