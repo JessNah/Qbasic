@@ -1,0 +1,9 @@
+login
+machine
+deposit
+7777777
+43600
+withdraw
+6161616
+100
+logout

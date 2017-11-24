@@ -1,0 +1,6 @@
+login
+machine
+createacct
+1000330
+bob
+logout

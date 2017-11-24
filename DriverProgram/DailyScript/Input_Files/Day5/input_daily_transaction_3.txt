@@ -1,0 +1,12 @@
+login
+machine
+deposit
+1444444
+20000
+deposit
+1234567
+6000
+deposit
+7777777
+200
+logout

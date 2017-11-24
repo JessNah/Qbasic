@@ -1,0 +1,12 @@
+login
+agent
+createacct
+7777777
+usman
+createacct
+7657657
+someaccount
+createacct
+1000330
+bob
+logout

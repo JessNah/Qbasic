@@ -1,0 +1,13 @@
+login
+agent
+deposit
+7777777
+30000
+deposit
+6161616
+6060606
+transfer
+1234567
+7777777
+1000
+logout

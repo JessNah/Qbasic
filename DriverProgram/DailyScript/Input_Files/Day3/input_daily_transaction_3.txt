@@ -1,0 +1,12 @@
+login
+agent
+deposit
+1234567
+900
+deposit
+6161616
+800
+deleteacct
+7657657
+someaccount
+logout

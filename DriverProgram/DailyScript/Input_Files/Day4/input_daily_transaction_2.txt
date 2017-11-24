@@ -1,0 +1,10 @@
+login
+machine
+withdraw
+1444444
+400
+transfer
+1444444
+7777777
+600
+logout
