@@ -1,0 +1,15 @@
+
+Processing transaction: NEW 1000329 000 0000000 ACCOUNTTHREE
+
+Processing transaction: EOS 0000000 000 0000000 ***
+End of merged transaction summary file successfully reached.
+
+Processing transaction: NEW 1001029 000 0000000 JESSICA
+
+Processing transaction: EOS 0000000 000 0000000 ***
+End of merged transaction summary file successfully reached.
+
+Processing transaction: NEW 1000330 000 0000000 BOB
+
+Processing transaction: EOS 0000000 000 0000000 ***
+End of merged transaction summary file successfully reached.

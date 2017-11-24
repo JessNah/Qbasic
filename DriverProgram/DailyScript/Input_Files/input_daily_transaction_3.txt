@@ -1,0 +1,6 @@
+login
+agent
+createacct
+1000330
+bob
+logout
