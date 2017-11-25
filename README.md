@@ -8,7 +8,7 @@ The basic work flow of the system is as follows:
 2. At the end of a day (after multiple FrontEnd application's have been run), the BackOffice uses a master accounts file, the current valid accounts file, and the merged transaction summary files (from the FrontEnd) to produce a new version of the master accounts file and the valid accounts file.
 3. Repeat steps 1 and 2 the next processing day using the NEW valid accounts file and the NEW master accounts file.
 
-##Front End Application Usage
+## Front End Application Usage
 The following provides a brief overview of how to use the QBasic python front end application.
 The Front End takes two arguments: the name of a Valid Accounts List file, and the name of a Transaction Summary file.
 Additionally, the Front End reads input from standard input, which can either be typed in by the user or redirected from a file (when testing). 
@@ -22,7 +22,7 @@ Additionally, the Front End reads input from standard input, which can either be
 **You can also save the terminal output created by the test:**
 ./QBasic.py validaccounts.txt transactionsummary.txt < testinput.txt > testoutput.txt
 
-##BackOffice Application Usage:
+## BackOffice Application Usage:
 The following provides a brief overview of how to use the QBasic Back-Office python application.
 The Back-Office takes four arguments: the previous day Master Accounts File, the Merged Transaction Summary File, and file to use for the new Master Accounts File created, and the file to use for the new Valid Accounts File created.
 
@@ -31,10 +31,10 @@ The previous day Master Accounts File is created by the last run of the back-off
 **How to run the Back-Office application:**
 ./BackOffice.py masteraccount.txt transactionsummary.txt newmasteraccount.txt newvalidaccount.txt
 
-##Daily and Weekly Banking Simulation Scripts:
+## Daily and Weekly Banking Simulation Scripts:
 To simulate daily and weekly banking transactions two scripts were created to allow automated transactions to take place without user input at the FrontEnd application. Each script is detailed below along with their respective usage.
 
-###Daily Script
+### Daily Script
 The daily script (dailyScript.sh) is used to run the FrontEnd application and BackOffice application to simulate a day’s worth of transaction. Currently the script is set to run the FrontEnd (ATM type) application 3 times before running the BackOffice application once at the end of the day. The 3 FrontEnd’s transaction summary files are merged by the script before being provided to the BackOffice. The script itself has 3 inputs and creates 4 types of outputs as seen below. Example usage for the script can be found below along with the error message provided if the user does not provide the correct number of input parameters. 
 
 **Daily Script Inputs:**
@@ -60,7 +60,7 @@ Where: 
  masteraccounts.txt is the master accounts file to use for backend processing at the end of the day 
  Input_Files/Day1 is the path to the directory containing the input transaction files
 
-###Weekly Script
+### Weekly Script
 The weekly script (weeklyScript.sh) is used to run the daily script a total of 5 times. This corresponds to the number of business days in a week as it is assumed that the banking system is not in use during the weekend. This action simulates the banking system being used for a total of 5 days, where each day consists of 3 FrontEnd runs and one BackOffice run. The weekly script does not directly take any input parameters but does use multiple pre-defined inputs as described below. The inputs used by the script are assumed to be of proper format and in the pre-defined locations (example, the transaction session inputs must be found in “Input_Files/Day[X]”).
 
 **Weekly Script Inputs:**
