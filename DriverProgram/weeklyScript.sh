@@ -11,8 +11,8 @@ rm -rf Logs/*
 
 #Empty the masteraccounts.txt and validaccounts.txt file from the previous week.
 #As stated in Assignment 6 description, each week should start with empty masteraccounts.txt and validaccounts.txt files.
-> Output_Files/masteraccounts.txt
-> Output_Files/validaccounts.txt
+#> Output_Files/masteraccounts.txt
+#> Output_Files/validaccounts.txt
 
 #Set the number of days in a week
 numDays=5
@@ -22,6 +22,7 @@ for i in $(seq 1 $numDays)
 do
 	echo -e "\n${RED}Running Daily Script for Day ${i}.";
 	./dailyScript.sh "Output_Files/validaccounts.txt" "Output_Files/masteraccounts.txt" "Input_Files/Day${i}"
+	
 done
 
 echo -e "\n\n${GREEN}Weekly QBasic run completed successfully. Daily script (dailyScript.sh) was executed total of $numDays times.${NC}"
