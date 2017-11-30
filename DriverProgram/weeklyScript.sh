@@ -11,6 +11,7 @@ rm -rf Logs/*
 
 #Empty the masteraccounts.txt and validaccounts.txt file from the previous week.
 #As stated in Assignment 6 description, each week should start with empty masteraccounts.txt and validaccounts.txt files.
+#Due to Assignment 6 FAQ, these lines are commented out so weekly script can be run multiple times to make up a month of transactions.
 #> Output_Files/masteraccounts.txt
 #> Output_Files/validaccounts.txt
 
